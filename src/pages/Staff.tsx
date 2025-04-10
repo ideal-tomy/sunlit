@@ -19,7 +19,7 @@ const Staff = () => {
               <div className="flex flex-col md:flex-row items-center md:items-start gap-8 mb-8">
                 <div className="w-full md:w-1/3">
                   <img 
-                    src="/images/staff04.jpg" 
+                    src="/images/staff04.jpeg" 
                     alt="院長" 
                     className="w-full h-auto rounded-lg shadow-lg"
                   />
@@ -52,7 +52,7 @@ const Staff = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
               <div className="bg-white rounded-lg shadow-md overflow-hidden">
                 <img 
-                  src="/images/staff01.jpg" 
+                  src="/images/saff01.jpeg" 
                   alt="鍼灸師 佐藤 花子" 
                   className="w-full h-64 object-cover"
                 />
@@ -76,7 +76,7 @@ const Staff = () => {
 
               <div className="bg-white rounded-lg shadow-md overflow-hidden">
                 <img 
-                  src="/images/staff02.jpg" 
+                  src="/images/staff02.jpeg" 
                   alt="柔道整復師 鈴木 一郎" 
                   className="w-full h-64 object-cover"
                 />
@@ -100,7 +100,7 @@ const Staff = () => {
 
               <div className="bg-white rounded-lg shadow-md overflow-hidden">
                 <img 
-                  src="/images/staff03.jpg" 
+                  src="/images/staff03.jpeg" 
                   alt="受付 田中 美咲" 
                   className="w-full h-64 object-cover"
                 />

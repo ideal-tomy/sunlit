@@ -140,7 +140,7 @@ const Contact = () => {
                     required
                   />
                   <label htmlFor="privacy" className="text-gray-700">
-                    <a href="/privacy-policy" className="text-primary hover:underline">プライバシーポリシー</a>に同意します
+                    <a href="./privacy-policy" className="text-primary hover:underline">プライバシーポリシー</a>に同意します
                   </label>
                 </div>
                 

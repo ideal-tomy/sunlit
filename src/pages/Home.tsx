@@ -125,7 +125,7 @@ const Home = () => {
               <Link to="/private-treatment" className="block h-full">
                 <div className="relative h-64 overflow-hidden">
                   <img 
-                    src="/images/2.png" 
+                    src="./images/2.png" 
                     alt="自由診療" 
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                   />
@@ -149,7 +149,7 @@ const Home = () => {
               <Link to="/insurance" className="block h-full">
                 <div className="relative h-64 overflow-hidden">
                   <img 
-                    src="/images/02.png" 
+                    src="./images/02.png" 
                     alt="保険診療" 
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                   />
@@ -173,7 +173,7 @@ const Home = () => {
               <Link to="/staff" className="block h-full">
                 <div className="relative h-64 overflow-hidden">
                   <img 
-                    src="/images/staff04.jpg" 
+                    src="./images/staff04.jpg" 
                     alt="スタッフ紹介" 
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                   />
@@ -201,7 +201,7 @@ const Home = () => {
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-1/2 mb-8 md:mb-0 md:pr-8">
               <img 
-                src="/images/02-01.png" 
+                src="./images/02-01.png" 
                 alt="治療理念" 
                 className="rounded-lg shadow-xl w-full h-auto"
               />
@@ -231,7 +231,7 @@ const Home = () => {
           <div className="flex flex-col md:flex-row-reverse items-center">
             <div className="md:w-1/2 mb-8 md:mb-0 md:pl-8">
               <img 
-                src="/images/02.png" 
+                src="./images/02.png" 
                 alt="お子様連れの方へ" 
                 className="rounded-lg shadow-xl w-full h-auto"
               />

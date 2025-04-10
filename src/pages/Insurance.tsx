@@ -5,7 +5,7 @@ const Insurance = () => {
     <div className="page-container">
       {/* ヒーローセクション */}
       <div style={{ position: 'relative', height: '320px' }}>
-        <img src="/images/01.png" width="100%" height="320" alt="保険診療" style={{ objectFit: 'cover' }} />
+        <img src="./images/01.png" width="100%" height="320" alt="保険診療" style={{ objectFit: 'cover' }} />
         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(0,0,0,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <h1 style={{ color: 'white', fontSize: '2rem', fontWeight: 'bold', textAlign: 'center' }}>保険診療</h1>
         </div>

@@ -1,3 +1,5 @@
+import TwoColumnMenu from '../components/TwoColumnMenu';
+
 const Acupuncture = () => {
   return (
     <div className="page-container">
@@ -30,117 +32,114 @@ const Acupuncture = () => {
               多いです。巡りが悪くなることで肩コリや頭痛、強い生理痛などを起こしてしまいます。
               当院では気・血の流れを改善し根本的な不調を改善することを心がけております。
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-              <div className="bg-accent p-4 rounded-md">
-                <h3 className="text-xl font-bold mb-2 text-secondary-dark">全身鍼灸</h3>
-              </div>
-              <div className="bg-accent p-4 rounded-md">
-                <h3 className="text-xl font-bold mb-2 text-secondary-dark">メンテナンス鍼灸</h3>
-              </div>
-              <div className="bg-accent p-4 rounded-md">
-                <h3 className="text-xl font-bold mb-2 text-secondary-dark">部分鍼・灸</h3>
-              </div>
-              <div className="bg-accent p-4 rounded-md">
-                <h3 className="text-xl font-bold mb-2 text-secondary-dark">吸玉療法</h3>
-              </div>
-            </div>
-            
-            <h2 className="text-2xl font-bold mb-4 text-secondary-dark">美容鍼</h2>
-            <p className="text-lg mb-4 text-gray-700">
-              今話題の美容鍼メニューも御座います。
-              美容鍼で大きく得られる効果は
-            </p>
-            <p className="text-lg mb-6 text-gray-700 font-medium">
-              リフトアップ効果・肌質改善・浮腫み改善（小顔効果）になります。
-            </p>
-            <p className="text-lg mb-4 text-gray-700">
-              鍼を打つことでお顔に小さな傷が出来ます。傷がつくことで【線維芽細胞】が働き傷を修復し
-              ます。傷を修復する時に自身の肌細胞が新しくなるため肌質の改善に繋がります。
-              鍼を打つことで血流の改善がみられ固まった表情筋が柔らかくなり、重たい老廃物も流れるた
-              め術後すぐに引きあがった実感を得られます。
-            </p>
-            <p className="text-lg mb-4 text-gray-700">
-              お顔に鍼を打つことの恐怖心もあると思いますが、鍼はとても細く柔らかい鍼を使用するので
-              心配はいりません。心地よい刺激で眠ってしまう方も多いので安心して受けてください。
-              施術前にお肌の状態や体調面などもカウンセリングいたしますのでご安心ください。
-            </p>
           </div>
           
-          <h1 className="text-3xl md:text-4xl font-bold mb-8 text-center text-secondary-dark">鍼灸</h1>
+          <h1 className="text-3xl md:text-4xl font-bold mb-8 text-center text-secondary-dark">鍼灸メニュー</h1>
+          <p className="text-center text-lg mb-6 text-gray-700">東洋医学の知恵を取り入れた完全オーダーメイドの施術で症状を改善します</p>
           <div className="w-24 h-1 bg-primary mx-auto mb-12"></div>
           
           <div className="max-w-4xl mx-auto">
-            <div className="mb-12">
-              <img 
-                src="/images/IMG_0352.jpg" 
-                alt="鍼灸治療" 
-                className="w-full h-auto rounded-lg shadow-lg mb-8"
-              />
-              <h2 className="text-2xl font-bold mb-4 text-secondary-dark">東洋医学の知恵を活かした施術</h2>
-              <p className="text-lg mb-6 text-gray-700">
-                鍼灸治療は、東洋医学の考え方に基づいた伝統的な治療法です。体内のエネルギーの流れ（気・血・水）のバランスを整え、
-                自然治癒力を高めることで、様々な症状の改善を目指します。
-              </p>
-              <p className="text-lg mb-6 text-gray-700">
-                当院では、一人ひとりの体質や症状に合わせたオーダーメイドの鍼灸治療を提供しています。
-                痛みを最小限に抑えた優しい施術で、鍼が初めての方でも安心して受けていただけます。
-              </p>
-            </div>
+            {/* 鍼灸メニュー（2カラム横並び） */}
+            <TwoColumnMenu
+              leftMenu={{
+                title: '全身鍼灸メニュー',
+                items: [
+                  {
+                    title: '全身鍼灸',
+                    price: '¥6,900',
+                    initialPrice: '¥5,900',
+                    duration: '60分',
+                    description: '全身の経絡に沿って鍼灸治療を行い、身体全体のバランスを整えます。慢性的な疲れや様々な不調にお悩みの方におすすめです。',
+                    imageSrc: '/images/acupuncture01.jpg',
+                    imageAlt: '全身鍼灸'
+                  }
+                ]
+              }}
+              rightMenu={{
+                title: 'メンテナンス鍼灸メニュー',
+                items: [
+                  {
+                    title: 'メンテナンス鍼灸',
+                    price: '¥4,600',
+                    initialPrice: '¥4,100',
+                    duration: '30分',
+                    description: '定期的なメンテナンスとして、気になる部分を重点的に施術します。忙しい方や部分的な不調にお悩みの方に最適です。',
+                    imageSrc: '/images/IMG_0042.jpg',
+                    imageAlt: 'メンテナンス鍼灸'
+                  }
+                ]
+              }}
+            />
 
-            <div className="mb-12">
-              <h2 className="text-2xl font-bold mb-4 text-secondary-dark">こんな症状に効果的です</h2>
-              <ul className="list-disc pl-6 space-y-2 text-lg text-gray-700">
-                <li>肩こり・腰痛・膝の痛み</li>
-                <li>頭痛・偏頭痛</li>
-                <li>自律神経の乱れ</li>
-                <li>不眠症・睡眠障害</li>
-                <li>めまい・耳鳴り</li>
-                <li>胃腸の不調</li>
-                <li>冷え性・むくみ</li>
-                <li>生理痛・PMS</li>
-                <li>ストレス・疲労</li>
-              </ul>
-            </div>
-
-            <div className="mb-12">
-              <h2 className="text-2xl font-bold mb-4 text-secondary-dark">施術の流れ</h2>
-              <ol className="list-decimal pl-6 space-y-4 text-lg text-gray-700">
-                <li>
-                  <strong>カウンセリング</strong><br />
-                  症状や生活習慣、体質などを詳しくお伺いします。
-                </li>
-                <li>
-                  <strong>診察・検査</strong><br />
-                  東洋医学的な診断（脈診・舌診など）と西洋医学的な検査を組み合わせて状態を把握します。
-                </li>
-                <li>
-                  <strong>施術</strong><br />
-                  診断結果に基づいて、最適なツボを選択し施術を行います。必要に応じて灸やマッサージも組み合わせます。
-                </li>
-                <li>
-                  <strong>アフターケア</strong><br />
-                  施術後のアドバイスや、自宅でできるセルフケアについてお伝えします。
-                </li>
-              </ol>
-            </div>
-
-            <div className="bg-accent p-8 rounded-lg shadow-md">
-              <h2 className="text-2xl font-bold mb-4 text-center text-secondary-dark">料金案内</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-white p-6 rounded-lg shadow-sm">
-                  <h3 className="text-xl font-bold mb-2 text-secondary-dark">一般鍼灸治療</h3>
-                  <p className="text-3xl font-bold text-primary mb-2">¥5,500<span className="text-sm text-gray-600">（税込）</span></p>
-                  <p className="text-gray-700">所要時間：約60分</p>
-                  <p className="text-gray-700 mt-4">全身の調整を行う基本的な鍼灸治療です。</p>
+            {/* 部分鍼灸・マッサージ */}
+            <div className="mb-12 bg-white p-6 rounded-lg shadow-lg">
+              <h2 className="text-2xl font-bold mb-4 text-secondary-dark border-b-2 border-primary pb-2">部分鍼灸・マッサージ</h2>
+              <div className="mb-6">
+                <div className="bg-white p-6 rounded-lg shadow-md">
+                  <h3 className="text-xl font-bold mb-2 text-secondary-dark">部分鍼灸・マッサージ</h3>
+                  <p className="text-3xl font-bold text-primary mb-2">¥700〜<span className="text-sm text-gray-600">(税込)</span></p>
+                  <p className="text-gray-700 mb-4">所要時間：症状に応じて</p>
+                  <p className="text-gray-700">症状に合わせた治療法を提供します。肩こり、腰痛、頭痛など特定の部位の不調に効果的です。</p>
                 </div>
-                <div className="bg-white p-6 rounded-lg shadow-sm">
-                  <h3 className="text-xl font-bold mb-2 text-secondary-dark">美容鍼</h3>
-                  <p className="text-3xl font-bold text-primary mb-2">¥8,800<span className="text-sm text-gray-600">（税込）</span></p>
-                  <p className="text-gray-700">所要時間：約90分</p>
-                  <p className="text-gray-700 mt-4">お顔のたるみやシワ、くすみなどにアプローチする美容鍼です。</p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="flex items-center justify-center">
+                  <img src="/images/IMG_0031.png" alt="部分鍼灸・マッサージ" className="rounded-lg shadow-md max-w-full h-auto" style={{ maxWidth: '300px', maxHeight: '200px' }} />
+                </div>
+                <div className="flex items-center justify-center">
+                  <img src="/images/03.png" alt="部分鍼灸・マッサージ" className="rounded-lg shadow-md max-w-full h-auto" style={{ maxWidth: '300px', maxHeight: '200px' }} />
                 </div>
               </div>
             </div>
+
+            <div className="mb-12 bg-white p-6 rounded-lg shadow-lg">
+              <h2 className="text-2xl font-bold mb-4 text-secondary-dark border-b-2 border-primary pb-2">美容鍼</h2>
+              <div className="mb-6">
+                <p className="text-lg mb-4 text-gray-700">
+                  今話題の美容鍼メニューも御座います。
+                  美容鍼で大きく得られる効果はリフトアップ効果・肌質改善・浮腕み改善（小顔効果）になります。
+                </p>
+                <p className="text-lg mb-4 text-gray-700">
+                  鍼を打つことでお顔に小さな傷が出来ます。傷がつくことで【線維芽細胞】が働き傷を修復します。傷を修復する時に自身の肌細胞が新しくなるため肌質の改善に繋がります。
+                  鍼を打つことで血流の改善がみられ固まった表情筋が柔らかくなり、重たい老廃物も流れるため術後すぐに引きあがった実感を得られます。
+                </p>
+                <p className="text-lg mb-6 text-gray-700">
+                  お顔に鍼を打つことの恐怖心もあると思いますが、鍼はとても細く柔らかい鍼を使用するので心配はいりません。心地よい刺激で眠ってしまう方も多いので安心して受けてください。
+                  施術前にお肌の状態や体調面などもカウンセリングいたしますのでご安心ください。
+                </p>
+              </div>
+            </div>
+
+            <TwoColumnMenu
+              leftMenu={{
+                title: '美容鍼（40分）',
+                items: [
+                  {
+                    title: '美容鍼',
+                    price: '¥5,700',
+                    initialPrice: '¥5,200',
+                    duration: '40分',
+                    description: 'お顔のたるみやシワ、くすみなどにアプローチ。リフトアップ効果と磁気改善が期待できます。',
+                    imageSrc: '/images/IMG_0116.jpg',
+                    imageAlt: '美容鍼'
+                  }
+                ]
+              }}
+              rightMenu={{
+                title: 'プラチナ美容鍼（60分）',
+                items: [
+                  {
+                    title: 'プラチナ美容鍼',
+                    price: '¥7,800',
+                    initialPrice: '¥6,800',
+                    duration: '60分',
+                    description: '標準コースに加え、首・肩・デコルテのケアや特殊マッサージを含む超贰沢コース。',
+                    imageSrc: '/images/05.png',
+                    imageAlt: 'プラチナ美容鍼'
+                  }
+                ]
+              }}
+            />
           </div>
         </div>
       </div>
