@@ -51,7 +51,8 @@ const Acupuncture = () => {
                     duration: '60分',
                     description: '全身の経絡に沿って鍼灸治療を行い、身体全体のバランスを整えます。慢性的な疲れや様々な不調にお悩みの方におすすめです。',
                     imageSrc: '/images/acupuncture01.jpg',
-                    imageAlt: '全身鍼灸'
+                    imageAlt: '全身鍼灸',
+                    hideTitle: true
                   }
                 ]
               }}
@@ -65,7 +66,8 @@ const Acupuncture = () => {
                     duration: '30分',
                     description: '定期的なメンテナンスとして、気になる部分を重点的に施術します。忙しい方や部分的な不調にお悩みの方に最適です。',
                     imageSrc: '/images/IMG_0042.jpg',
-                    imageAlt: 'メンテナンス鍼灸'
+                    imageAlt: 'メンテナンス鍼灸',
+                    hideTitle: true
                   }
                 ]
               }}
@@ -121,7 +123,8 @@ const Acupuncture = () => {
                     duration: '40分',
                     description: 'お顔のたるみやシワ、くすみなどにアプローチ。リフトアップ効果と磁気改善が期待できます。',
                     imageSrc: '/images/IMG_0116.jpg',
-                    imageAlt: '美容鍼'
+                    imageAlt: '美容鍼',
+                    hideTitle: true
                   }
                 ]
               }}
@@ -133,9 +136,10 @@ const Acupuncture = () => {
                     price: '¥7,800',
                     initialPrice: '¥6,800',
                     duration: '60分',
-                    description: '標準コースに加え、首・肩・デコルテのケアや特殊マッサージを含む超贰沢コース。',
+                    description: '標準コースに加え、首・肩・デコルテのケアや特殊マッサージを含む超贐沢コース。',
                     imageSrc: '/images/05.png',
-                    imageAlt: 'プラチナ美容鍼'
+                    imageAlt: 'プラチナ美容鍼',
+                    hideTitle: true
                   }
                 ]
               }}

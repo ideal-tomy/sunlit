@@ -8,16 +8,19 @@ interface MenuItemProps {
   description: string;
   imageSrc: string;
   imageAlt: string;
+  hideTitle?: boolean;
 }
 
 interface TwoColumnMenuProps {
   leftMenu: {
     title: string;
     items: MenuItemProps[];
+    hideTitle?: boolean;
   };
   rightMenu: {
     title: string;
     items: MenuItemProps[];
+    hideTitle?: boolean;
   };
 }
 
@@ -25,7 +28,7 @@ const TwoColumnMenu: React.FC<TwoColumnMenuProps> = ({ leftMenu, rightMenu }) =>
   // 単一メニュー項目のレンダリング関数
   const renderMenuItem = (item: MenuItemProps) => (
     <div className="bg-white p-4 rounded-lg shadow-md mb-4">
-      <h3 className="text-xl font-bold mb-2 text-secondary-dark">{item.title}</h3>
+      {!item.hideTitle && <h3 className="text-xl font-bold mb-2 text-secondary-dark">{item.title}</h3>}
       <div className="flex justify-between items-center mb-2">
         <p className="text-3xl font-bold text-primary">{item.price}<span className="text-sm text-gray-600">(税込)</span></p>
         {item.initialPrice && (
@@ -38,9 +41,9 @@ const TwoColumnMenu: React.FC<TwoColumnMenuProps> = ({ leftMenu, rightMenu }) =>
   );
 
   // メニューカラムのレンダリング関数
-  const renderMenuColumn = (menu: { title: string; items: MenuItemProps[] }) => (
+  const renderMenuColumn = (menu: { title: string; items: MenuItemProps[], hideTitle?: boolean }) => (
     <div className="bg-white p-6 rounded-lg shadow-lg h-full">
-      <h2 className="text-2xl font-bold mb-4 text-secondary-dark border-b-2 border-primary pb-2">{menu.title}</h2>
+      {!menu.hideTitle && <h2 className="text-2xl font-bold mb-4 text-secondary-dark border-b-2 border-primary pb-2">{menu.title}</h2>}
       <div className="flex flex-col h-full">
         {menu.items.map((item, index) => (
           <React.Fragment key={index}>
