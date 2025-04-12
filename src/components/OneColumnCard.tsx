@@ -6,6 +6,7 @@ interface BaseCardItem {
   title: string;
   bgColor?: string;
   hideTitle?: boolean;
+  hideIcon?: boolean;
 }
 
 // メニューカード項目のインターフェース
@@ -14,6 +15,8 @@ interface MenuCardItem extends BaseCardItem {
   initialPrice?: string;
   duration: string;
   description: string;
+  imageSrc?: string;
+  imageAlt?: string;
 }
 
 // メニューグループのインターフェース
@@ -22,6 +25,8 @@ interface MenuGroup {
   items: MenuCardItem[];
   hideTitle?: boolean;
   icon?: string;
+  titleStyle?: React.CSSProperties;
+  iconStyle?: React.CSSProperties;
 }
 
 // 1カラムカードのプロパティ
@@ -45,7 +50,9 @@ const OneColumnCard: React.FC<OneColumnCardProps> = ({
     >
       <div className="p-6">
         <div className="flex items-center justify-center mb-5">
-          <span className="material-icons text-3xl text-primary mr-3">{item.icon || 'spa'}</span>
+          {!item.hideIcon && (
+            <span className="material-icons text-3xl mr-3" style={{ color: '#3377f9' }}>{item.icon || 'spa'}</span>
+          )}
           {!item.hideTitle && (
             <h3 className="text-2xl font-bold text-secondary-dark">{item.title}</h3>
           )}
@@ -60,6 +67,17 @@ const OneColumnCard: React.FC<OneColumnCardProps> = ({
         </div>
         
         <p className="text-gray-700 leading-relaxed mb-6 text-center text-lg">{item.description}</p>
+        
+        {item.imageSrc && (
+          <div className="flex justify-center mt-3 mb-2">
+            <img 
+              src={item.imageSrc} 
+              alt={item.imageAlt || item.title} 
+              className="rounded-lg shadow-sm max-w-full h-auto" 
+              style={{ maxWidth: '450px', maxHeight: '320px' }} 
+            />
+          </div>
+        )}
       </div>
     </div>
   );
@@ -68,12 +86,12 @@ const OneColumnCard: React.FC<OneColumnCardProps> = ({
   const renderMenuGroup = (group: MenuGroup, index: number) => (
     <div 
       key={index} 
-      className="bg-white p-6 rounded-xl h-full transform transition duration-300"
+      className="bg-white p-6 rounded-xl shadow-md h-full transform transition duration-300 hover:shadow-lg"
     >
       {!group.hideTitle && (
-        <div className="flex items-center justify-center mb-6 pb-3 border-b-2 border-primary">
-          <span className="material-icons text-3xl text-primary mr-3">{group.icon || 'menu_book'}</span>
-          <h2 className="text-2xl font-bold text-secondary-dark">{group.title}</h2>
+        <div className="flex items-center justify-center mb-6 pb-3 border-b border-primary rounded-lg p-2" style={group.titleStyle || {}}>
+          <span className="material-icons text-3xl mr-3" style={group.iconStyle || {}}>{group.icon || 'menu_book'}</span>
+          <h2 className="text-3xl font-bold text-secondary-dark">{group.title}</h2>
         </div>
       )}
       <div className="flex flex-col h-full">

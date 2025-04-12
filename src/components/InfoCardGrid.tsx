@@ -6,6 +6,7 @@ interface BaseCardItem {
   title: string;
   bgColor?: string;
   hideTitle?: boolean;
+  hideIcon?: boolean;
 }
 
 // 情報カード項目のインターフェース
@@ -29,6 +30,8 @@ interface MenuGroup {
   items: MenuCardItem[];
   hideTitle?: boolean;
   icon?: string;
+  titleStyle?: React.CSSProperties;
+  iconStyle?: React.CSSProperties;
 }
 
 // 共通のカードグリッドのプロパティ
@@ -86,7 +89,9 @@ const InfoCardGrid: React.FC<InfoCardGridProps> = ({
     >
       <div className="px-6 pt-5">
         <div className="flex items-center justify-center mb-4">
-          <span className="material-icons text-2xl text-primary mr-3">{item.icon || 'spa'}</span>
+          {!item.hideIcon && (
+            <span className="material-icons text-2xl mr-3" style={{ color: '#3377f9' }}>{item.icon || 'spa'}</span>
+          )}
           {!item.hideTitle && (
             <h3 className="text-xl font-bold text-secondary-dark">{item.title}</h3>
           )}
@@ -105,7 +110,7 @@ const InfoCardGrid: React.FC<InfoCardGridProps> = ({
               src={item.imageSrc} 
               alt={item.imageAlt || item.title} 
               className="rounded-lg shadow-sm max-w-full h-auto" 
-              style={{ maxWidth: '240px', maxHeight: '160px' }} 
+              style={{ maxWidth: '400px', maxHeight: '280px' }} 
             />
           </div>
         )}
@@ -120,8 +125,8 @@ const InfoCardGrid: React.FC<InfoCardGridProps> = ({
       className="bg-white p-6 rounded-xl shadow-md h-full transform transition duration-300 hover:shadow-lg"
     >
       {!group.hideTitle && (
-        <div className="flex items-center justify-center mb-5 pb-3 border-b border-primary">
-          <span className="material-icons text-2xl text-primary mr-3">{group.icon || 'menu_book'}</span>
+        <div className="flex items-center justify-center mb-5 pb-3 border-b border-primary rounded-lg p-2" style={group.titleStyle || {}}>
+          <span className="material-icons text-2xl mr-3" style={group.iconStyle || {}}>{group.icon || 'menu_book'}</span>
           <h2 className="text-2xl font-bold text-secondary-dark">{group.title}</h2>
         </div>
       )}

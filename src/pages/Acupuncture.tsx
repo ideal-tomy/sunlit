@@ -64,7 +64,9 @@ const Acupuncture = () => {
               menuGroups={[
                 {
                   title: '全身鍼灸メニュー',
-                  icon: 'spa',
+                  icon: 'healing',
+                  titleStyle: { backgroundColor: '#f9aa33', padding: '8px', borderRadius: '8px' },
+                  iconStyle: { color: '#3377f9' },
                   items: [
                     {
                       icon: 'spa',
@@ -75,13 +77,16 @@ const Acupuncture = () => {
                       description: '全身の経絡に沿って鍼灸治療を行い、身体全体のバランスを整えます。慢性的な疲れや様々な不調にお悩みの方におすすめです。',
                       imageSrc: '/images/acupuncture01.jpg',
                       imageAlt: '全身鍼灸',
-                      hideTitle: true
+                      hideTitle: true,
+                      hideIcon: true
                     }
                   ]
                 },
                 {
                   title: 'メンテナンス鍼灸メニュー',
-                  icon: 'spa',
+                  icon: 'healing',
+                  titleStyle: { backgroundColor: '#f9aa33', padding: '8px', borderRadius: '8px' },
+                  iconStyle: { color: '#3377f9' },
                   items: [
                     {
                       icon: 'spa',
@@ -92,7 +97,8 @@ const Acupuncture = () => {
                       description: '定期的なメンテナンスとして、気になる部分を重点的に施術します。忙しい方や部分的な不調にお悩みの方に最適です。',
                       imageSrc: '/images/IMG_0042.jpg',
                       imageAlt: 'メンテナンス鍼灸',
-                      hideTitle: true
+                      hideTitle: true,
+                      hideIcon: true
                     }
                   ]
                 }
@@ -103,20 +109,24 @@ const Acupuncture = () => {
             />
 
             {/* 部分鍼灸・マッサージ */}
-            <h2 className="text-2xl font-bold mb-4 text-secondary-dark border-b-2 border-primary pb-2 text-center">部分鍼灸・マッサージ</h2>
             
             <OneColumnCard
               menuGroups={[
                 {
                   title: '部分鍼灸・マッサージ',
-                  hideTitle: true,
+                  icon: 'healing',
+                  titleStyle: { backgroundColor: '#f9aa33', padding: '8px', borderRadius: '8px' },
+                  iconStyle: { color: '#3377f9' },
                   items: [
                     {
                       icon: 'attach_money',
                       title: '料金・所要時間',
                       price: '¥700〜',
                       duration: '症状に応じて',
-                      description: '症状に合わせた治療法を提供します。肩こり、腰痛、頭痛など特定の部位の不調に効果的です。'
+                      description: '症状に合わせた治療法を提供します。肩こり、腰痛、頭痛など特定の部位の不調に効果的です。',
+                      imageSrc: '/images/02-01.png',
+                      imageAlt: '部分鍵灸・マッサージ',
+                      hideIcon: true
                     }
                   ]
                 }
@@ -200,7 +210,9 @@ const Acupuncture = () => {
               menuGroups={[
                 {
                   title: '美容鍼（40分）',
-                  icon: 'spa',
+                  icon: 'healing',
+                  titleStyle: { backgroundColor: '#f9aa33', padding: '8px', borderRadius: '8px' },
+                  iconStyle: { color: '#3377f9' },
                   items: [
                     {
                       icon: 'spa',
@@ -211,13 +223,16 @@ const Acupuncture = () => {
                       description: 'お顔のたるみやシワ、くすみなどにアプローチ。リフトアップ効果と磁気改善が期待できます。',
                       imageSrc: '/images/IMG_0116.jpg',
                       imageAlt: '美容鍼',
-                      hideTitle: true
+                      hideTitle: true,
+                      hideIcon: true
                     }
                   ]
                 },
                 {
                   title: 'プラチナ美容鍼（60分）',
-                  icon: 'spa',
+                  icon: 'healing',
+                  titleStyle: { backgroundColor: '#f9aa33', padding: '8px', borderRadius: '8px' },
+                  iconStyle: { color: '#3377f9' },
                   items: [
                     {
                       icon: 'spa',
@@ -228,7 +243,8 @@ const Acupuncture = () => {
                       description: '標準コースに加え、首・肩・デコルテのケアや特殊マッサージを含む超贐沃コース。',
                       imageSrc: '/images/05.png',
                       imageAlt: 'プラチナ美容鍼',
-                      hideTitle: true
+                      hideTitle: true,
+                      hideIcon: true
                     }
                   ]
                 }

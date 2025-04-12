@@ -41,15 +41,19 @@ const PrivateTreatment = () => {
               {
                 title: '全身整体メニュー',
                 icon: 'menu_book',
+                titleStyle: { backgroundColor: '#f9aa33', padding: '8px', borderRadius: '8px' },
+                iconStyle: { color: '#3377f9' },
                 items: [
                   {
                     icon: 'spa',
                     title: '全身整体',
+                    hideTitle: true,
+                    hideIcon: true,
                     price: '¥6,200',
                     initialPrice: '¥5,200',
                     duration: '60分',
                     description: '全身の調整を行い、身体全体のバランスを整えます。慢性的な疲れや不調にお悩みの方におすすめです。',
-                    imageSrc: '/images/hero02.jpg',
+                    imageSrc: '/images/02-01.png',
                     imageAlt: '全身整体'
                   }
                 ]
@@ -57,15 +61,19 @@ const PrivateTreatment = () => {
               {
                 title: 'メンテナンス整体メニュー',
                 icon: 'menu_book',
+                titleStyle: { backgroundColor: '#f9aa33', padding: '8px', borderRadius: '8px' },
+                iconStyle: { color: '#3377f9' },
                 items: [
                   {
                     icon: 'spa',
                     title: 'メンテナンス整体',
+                    hideTitle: true,
+                    hideIcon: true,
                     price: '¥3,600',
                     initialPrice: '¥3,100',
                     duration: '30分',
                     description: '定期的なメンテナンスとして、気になる部分を重点的に施術します。忙しい方や部分的な不調にお悩みの方に最適です。',
-                    imageSrc: '/images/IMG_0031.png',
+                    imageSrc: '/images/02-01.png',
                     imageAlt: 'メンテナンス整体'
                   }
                 ]
@@ -77,22 +85,24 @@ const PrivateTreatment = () => {
           />
 
           {/* 特別整体メニュー */}
-          <h2 className="text-2xl font-bold mb-4 text-secondary-dark border-b-2 border-primary pb-2 text-center">特別整体メニュー</h2>
           
           <OneColumnCard
             menuGroups={[
               {
                 title: '特別整体',
-                hideTitle: true,
-                icon: 'stars',
+                icon: 'healing',
+                titleStyle: { backgroundColor: '#f9aa33', padding: '8px', borderRadius: '8px' },
+                iconStyle: { color: '#3377f9' },
                 items: [
                   {
                     icon: 'attach_money',
-                    title: '特別整体',
+                    title: '料金・所要時間',
                     price: '¥8,800',
                     initialPrice: '¥7,800',
                     duration: '90分',
-                    description: '全身の調整に加え、特に気になる部分に時間をかけて丁寧に施術します。長期的な不調や複合的な症状にお悩みの方におすすめです。'
+                    description: '全身の調整に加え、特に気になる部分に時間をかけて丁寧に施術します。長期的な不調や複合的な症状にお悩みの方におすすめです。',
+                    imageSrc: '/images/02-01.png',
+                    imageAlt: '特別整体'
                   }
                 ]
               }
@@ -112,12 +122,15 @@ const PrivateTreatment = () => {
             menuGroups={[
               {
                 title: '足裏ケア',
-                hideTitle: true,
-                icon: 'spa',
+                icon: 'healing',
+                titleStyle: { backgroundColor: '#f9aa33', padding: '8px', borderRadius: '8px' },
+                iconStyle: { color: '#3377f9' },
                 items: [
                   {
                     icon: 'spa',
                     title: '足裏ケア',
+                    hideTitle: true,
+                    hideIcon: true,
                     price: '¥3,600',
                     duration: '30分',
                     description: '足裏の反射区を刷激し、全身の血行促進や疲労回復を促します。むくみや冷え性の改善にも効果的です。',
@@ -128,16 +141,19 @@ const PrivateTreatment = () => {
               },
               {
                 title: '眼精疲労ケア',
-                hideTitle: true,
-                icon: 'spa',
+                icon: 'healing',
+                titleStyle: { backgroundColor: '#f9aa33', padding: '8px', borderRadius: '8px' },
+                iconStyle: { color: '#3377f9' },
                 items: [
                   {
                     icon: 'spa',
                     title: '眼精疲労ケア',
+                    hideTitle: true,
+                    hideIcon: true,
                     price: '¥3,600',
                     duration: '30分',
                     description: '目の周りや頭部の締張をほぐし、眼精疲労や頭痛の緩和を目指します。デスクワークやスマホ使用が多い方におすすめです。',
-                    imageSrc: '/images/IMG_0044.jpg',
+                    imageSrc: '/images/02-01.png',
                     imageAlt: '眼精疲労ケア'
                   }
                 ]
@@ -156,12 +172,15 @@ const PrivateTreatment = () => {
             menuGroups={[
               {
                 title: 'ファンクショナルカッピング',
-                hideTitle: true,
-                icon: 'spa',
+                icon: 'healing',
+                titleStyle: { backgroundColor: '#f9aa33', padding: '8px', borderRadius: '8px' },
+                iconStyle: { color: '#3377f9' },
                 items: [
                   {
                     icon: 'spa',
                     title: 'ファンクショナルカッピング',
+                    hideTitle: true,
+                    hideIcon: true,
                     price: '¥2,800',
                     duration: '30分',
                     description: '一般的な吸い玉法ではなく、筋肉や経絡に置くことでモビリティの向上や痛みの減少を目指す法です。',
@@ -172,16 +191,19 @@ const PrivateTreatment = () => {
               },
               {
                 title: '極上ハンドケア',
-                hideTitle: true,
-                icon: 'spa',
+                icon: 'healing',
+                titleStyle: { backgroundColor: '#f9aa33', padding: '8px', borderRadius: '8px' },
+                iconStyle: { color: '#3377f9' },
                 items: [
                   {
                     icon: 'spa',
                     title: '極上ハンドケア',
+                    hideTitle: true,
+                    hideIcon: true,
                     price: '¥1,900',
                     duration: '15分',
                     description: '手や腕の疲れをほぐし、血行を促進します。スマホやパソコン操作で手や腕に疲れを感じる方におすすめです。',
-                    imageSrc: '/images/00.png',
+                    imageSrc: '/images/02-01.png',
                     imageAlt: '極上ハンドケア'
                   }
                 ]
