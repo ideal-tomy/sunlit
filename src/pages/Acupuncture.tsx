@@ -26,7 +26,7 @@ const Acupuncture = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 mb-8">
               <div className="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:shadow-xl hover:-translate-y-1">
-                <div className="bg-primary bg-opacity-10 p-3 flex items-center">
+                <div className="bg-white p-3 flex items-center">
                   <span className="material-icons text-2xl text-primary mr-2">person</span>
                   <h3 className="text-xl font-bold text-secondary-dark">
                     一人ひとりに合わせたアプローチ
@@ -136,31 +136,40 @@ const Acupuncture = () => {
               </h2>
               
               <div className="mb-6">
-                <div className="bg-primary bg-opacity-5 p-4 rounded-lg mb-6">
+                <div className="bg-white p-4 rounded-lg mb-6 shadow-sm">
                   <p className="text-lg text-gray-700">
                     今話題の美容鍼メニューも御座います。
                     美容鍼で大きく得られる効果は以下の3つです：
                   </p>
                   
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
-                    <div className="bg-white p-3 rounded-lg shadow-sm text-center">
-                      <span className="material-icons text-primary text-2xl">arrow_upward</span>
-                      <h4 className="font-bold text-secondary-dark">リフトアップ効果</h4>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+                    <div className="relative overflow-hidden rounded-xl shadow-lg transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1 h-64">
+                      <div className="h-full w-full" style={{ backgroundImage: 'url(/images/IMG_0116.jpg)', backgroundSize: 'cover', backgroundPosition: 'center', filter: 'brightness(0.7)' }}></div>
+                      <div className="absolute inset-0 flex flex-col justify-center items-center p-4">
+                        <h3 className="text-3xl font-bold text-white mb-2 drop-shadow-lg">リフトアップ効果</h3>
+                        <p className="text-xl text-white font-medium drop-shadow-md">たるみやシワの改善</p>
+                      </div>
                     </div>
-                    <div className="bg-white p-3 rounded-lg shadow-sm text-center">
-                      <span className="material-icons text-primary text-2xl">auto_fix_high</span>
-                      <h4 className="font-bold text-secondary-dark">肌質改善</h4>
+                    <div className="relative overflow-hidden rounded-xl shadow-lg transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1 h-64">
+                      <div className="h-full w-full" style={{ backgroundImage: 'url(/images/IMG_0116.jpg)', backgroundSize: 'cover', backgroundPosition: 'center', filter: 'brightness(0.7)' }}></div>
+                      <div className="absolute inset-0 flex flex-col justify-center items-center p-4">
+                        <h3 className="text-3xl font-bold text-white mb-2 drop-shadow-lg">肌質改善</h3>
+                        <p className="text-xl text-white font-medium drop-shadow-md">ハリや強度の向上</p>
+                      </div>
                     </div>
-                    <div className="bg-white p-3 rounded-lg shadow-sm text-center">
-                      <span className="material-icons text-primary text-2xl">face</span>
-                      <h4 className="font-bold text-secondary-dark">小顔効果</h4>
+                    <div className="relative overflow-hidden rounded-xl shadow-lg transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1 h-64">
+                      <div className="h-full w-full" style={{ backgroundImage: 'url(/images/IMG_0158.jpg)', backgroundSize: 'cover', backgroundPosition: 'center', filter: 'brightness(0.7)' }}></div>
+                      <div className="absolute inset-0 flex flex-col justify-center items-center p-4">
+                        <h3 className="text-3xl font-bold text-white mb-2 drop-shadow-lg">小顔効果</h3>
+                        <p className="text-xl text-white font-medium drop-shadow-md">顔の輪郭が引き締まり</p>
+                      </div>
                     </div>
                   </div>
                 </div>
                 
                 <div className="flex flex-col md:flex-row gap-8 md:gap-16 mb-8">
                   <div className="flex-1 bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:shadow-xl hover:-translate-y-1">
-                    <div className="bg-primary bg-opacity-10 p-3 flex items-center">
+                    <div className="bg-white p-3 flex items-center">
                       <span className="material-icons text-2xl text-primary mr-2">science</span>
                       <h3 className="text-xl font-bold text-secondary-dark">
                         美容鍼の仕組み
