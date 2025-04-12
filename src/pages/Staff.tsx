@@ -62,12 +62,12 @@ const Staff = () => {
                       </div>
                     </div>
                     
-                    <div className="bg-primary bg-opacity-5 p-4 rounded-lg mb-4">
-                      <div className="flex items-center mb-2">
-                        <span className="material-icons text-xl text-primary mr-2">chat</span>
-                        <h4 className="font-bold text-secondary-dark">ひとこと</h4>
+                    <div className="bg-primary bg-opacity-5 px-6 py-5 rounded-lg mb-4">
+                      <div className="flex items-center mb-3">
+                        <span className="material-icons text-2xl text-secondary mr-3">chat</span>
+                        <h4 className="text-xl font-bold text-secondary-dark">ひとこと</h4>
                       </div>
-                      <p className="text-lg text-gray-700">
+                      <p className="text-lg text-gray-700 py-2">
                         疲労や痛みは一人で悩まずにご相談ください。快適な毎日を過ごすお手伝いをさせて下さい。
                       </p>
                     </div>
@@ -110,12 +110,12 @@ const Staff = () => {
                       </div>
                     </div>
                     
-                    <div className="bg-primary bg-opacity-5 p-4 rounded-lg mb-4">
-                      <div className="flex items-center mb-2">
-                        <span className="material-icons text-xl text-primary mr-2">chat</span>
-                        <h4 className="font-bold text-secondary-dark">ひとこと</h4>
+                    <div className="bg-primary bg-opacity-5 px-6 py-5 rounded-lg mb-4">
+                      <div className="flex items-center mb-3">
+                        <span className="material-icons text-2xl text-secondary mr-3">chat</span>
+                        <h4 className="text-xl font-bold text-secondary-dark">ひとこと</h4>
                       </div>
-                      <p className="text-lg text-gray-700">
+                      <p className="text-lg text-gray-700 py-2">
                         明日を明るく笑顔で過ごせるように施術していきます！
                       </p>
                     </div>
@@ -158,12 +158,12 @@ const Staff = () => {
                       </div>
                     </div>
                     
-                    <div className="bg-primary bg-opacity-5 p-4 rounded-lg mb-4">
-                      <div className="flex items-center mb-2">
-                        <span className="material-icons text-xl text-primary mr-2">chat</span>
-                        <h4 className="font-bold text-secondary-dark">ひとこと</h4>
+                    <div className="bg-primary bg-opacity-5 px-6 py-5 rounded-lg mb-4">
+                      <div className="flex items-center mb-3">
+                        <span className="material-icons text-2xl text-secondary mr-3">chat</span>
+                        <h4 className="text-xl font-bold text-secondary-dark">ひとこと</h4>
                       </div>
-                      <p className="text-lg text-gray-700">
+                      <p className="text-lg text-gray-700 py-2">
                         患者様が日々を笑顔で過ごせるよう、みなさま一人一人と真摯に向き合い、施術を行っていきます！
                       </p>
                     </div>
@@ -206,12 +206,12 @@ const Staff = () => {
                       </div>
                     </div>
                     
-                    <div className="bg-primary bg-opacity-5 p-4 rounded-lg mb-4">
-                      <div className="flex items-center mb-2">
-                        <span className="material-icons text-xl text-primary mr-2">chat</span>
-                        <h4 className="font-bold text-secondary-dark">ひとこと</h4>
+                    <div className="bg-primary bg-opacity-5 px-6 py-5 rounded-lg mb-4">
+                      <div className="flex items-center mb-3">
+                        <span className="material-icons text-2xl text-secondary mr-3">chat</span>
+                        <h4 className="text-xl font-bold text-secondary-dark">ひとこと</h4>
                       </div>
-                      <p className="text-lg text-gray-700">
+                      <p className="text-lg text-gray-700 py-2">
                         院内個室でオイルリンパドレナージュを行っています。
                         自己免疫アップで健康維持・向上をサポートします！
                       </p>
