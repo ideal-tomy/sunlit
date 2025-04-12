@@ -1,6 +1,6 @@
 // 画像をpublicディレクトリから直接参照
 import { Link } from 'react-router-dom';
-import OneColumnCard from '../components/OneColumnCard';
+import InfoCardGrid from '../components/InfoCardGrid';
 
 const Insurance = () => {
   return (
@@ -71,81 +71,151 @@ const Insurance = () => {
                 <span className="material-icons text-primary mr-2">medical_services</span>
                 保険診療の特徴
               </h2>
-              <p className="text-lg mb-6 text-gray-700">
-                保険診療とは、健康保険が適用される治療を指します。当院では保険診療と併用して更に早く完治できるように特別な電気治療や部分鍼治療を推奨しております。
-                そのため、保険診療を受ける際には、事前に当院までご相談ください。
-              </p>
+              <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-primary mb-6">
+                <p className="text-lg text-gray-700">
+                  保険診療とは、健康保険が適用される治療を指します。当院では保険診療と併用して更に早く完治できるように<span className="font-bold text-primary">特別な電気治療や部分鍼治療</span>を推奨しております。
+                </p>
+                <p className="text-lg text-gray-700 mt-2">
+                  そのため、保険診療を受ける際には、事前に当院までご相談ください。
+                </p>
+              </div>
 
               {/* 保険診療のワークフロー */}
-              <div className="bg-white p-6 rounded-lg border-l-4 border-primary mb-8">
-                <h3 className="text-xl font-bold mb-4 text-secondary-dark flex items-center">
+              <div className="mb-8">
+                <h3 className="text-2xl font-bold mb-6 text-secondary-dark flex items-center justify-center">
                   <span className="material-icons text-primary mr-2">timeline</span>
                   治療の流れ
                 </h3>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
-                  <div className="bg-white p-4 rounded-lg border border-gray-200 flex flex-col items-center text-center">
-                    <div className="bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center mb-3">1</div>
-                    <h4 className="font-bold mb-2 text-secondary-dark">問診・受付</h4>
-                    <p className="text-gray-600">症状をお聞きし、保険証を確認します</p>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+                  <div className="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:shadow-xl hover:-translate-y-1">
+                    <div className="bg-primary p-4 flex items-center justify-center">
+                      <div className="bg-white text-primary rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold">1</div>
+                    </div>
+                    <div className="p-6 text-center">
+                      <h4 className="text-xl font-bold mb-3 text-secondary-dark">問診・受付</h4>
+                      <p className="text-gray-700">症状をお聞きし、保険証を確認します</p>
+                    </div>
                   </div>
-                  <div className="bg-white p-4 rounded-lg border border-gray-200 flex flex-col items-center text-center">
-                    <div className="bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center mb-3">2</div>
-                    <h4 className="font-bold mb-2 text-secondary-dark">検査・診断</h4>
-                    <p className="text-gray-600">症状に応じた詳細な検査を行います</p>
+                  <div className="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:shadow-xl hover:-translate-y-1">
+                    <div className="bg-primary p-4 flex items-center justify-center">
+                      <div className="bg-white text-primary rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold">2</div>
+                    </div>
+                    <div className="p-6 text-center">
+                      <h4 className="text-xl font-bold mb-3 text-secondary-dark">検査・診断</h4>
+                      <p className="text-gray-700">症状に応じた詳細な検査を行います</p>
+                    </div>
                   </div>
-                  <div className="bg-white p-4 rounded-lg border border-gray-200 flex flex-col items-center text-center">
-                    <div className="bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center mb-3">3</div>
-                    <h4 className="font-bold mb-2 text-secondary-dark">治療・アフターケア</h4>
-                    <p className="text-gray-600">適切な治療と回復のためのケアを行います</p>
+                  <div className="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:shadow-xl hover:-translate-y-1">
+                    <div className="bg-primary p-4 flex items-center justify-center">
+                      <div className="bg-white text-primary rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold">3</div>
+                    </div>
+                    <div className="p-6 text-center">
+                      <h4 className="text-xl font-bold mb-3 text-secondary-dark">治療・アフターケア</h4>
+                      <p className="text-gray-700">適切な治療と回復のためのケアを行います</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
             <div className="mb-12">
-              <h2 className="text-2xl font-bold mb-4 text-secondary-dark flex items-center">
+              <h2 className="text-2xl font-bold mb-4 text-secondary-dark flex items-center justify-center">
                 <span className="material-icons text-primary mr-2">category</span>
                 保険診療の種類
               </h2>
               
-              <OneColumnCard
+              {/* 整形外科とリハビリテーション */}
+              <h3 className="text-2xl font-bold mb-6 text-secondary-dark flex items-center justify-center">
+                <span className="material-icons text-primary mr-2">medical_services</span>
+                整形外科・リハビリテーション
+              </h3>
+              
+              <InfoCardGrid
                 menuGroups={[
                   {
-                    title: '保険診療メニュー',
-                    hideTitle: true,
-                    icon: 'medical_services',
+                    title: '整形外科',
+                    icon: 'healing',
+                    titleStyle: { backgroundColor: '#f9aa33', padding: '8px', borderRadius: '8px' },
+                    iconStyle: { color: '#3377f9' },
                     items: [
                       {
                         icon: 'healing',
                         title: '整形外科',
-                        price: '保険適用',
+                        hideTitle: true,
+                        hideIcon: true,
+                        price: '保険適用(税込)',
                         duration: '症状により異なります',
                         description: '怪我や整形外科的症状に対する専門的な治療を行います。'
-                      },
+                      }
+                    ]
+                  },
+                  {
+                    title: 'リハビリテーション',
+                    icon: 'sports',
+                    titleStyle: { backgroundColor: '#f9aa33', padding: '8px', borderRadius: '8px' },
+                    iconStyle: { color: '#3377f9' },
+                    items: [
                       {
                         icon: 'sports',
                         title: 'リハビリテーション',
-                        price: '保険適用',
+                        hideTitle: true,
+                        hideIcon: true,
+                        price: '保険適用(税込)',
                         duration: '指示により異なります',
                         description: '機能回復や体力向上のためのリハビリテーションを提供します。'
-                      },
+                      }
+                    ]
+                  }
+                ]}
+                columns={2}
+                gap="gap-6"
+                marginBottom="mb-8"
+              />
+              
+              {/* 鍼灸治療とマッサージ治療 */}
+              <h3 className="text-2xl font-bold mb-6 text-secondary-dark flex items-center justify-center">
+                <span className="material-icons text-primary mr-2">spa</span>
+                鍼灸・マッサージ治療
+              </h3>
+              
+              <InfoCardGrid
+                menuGroups={[
+                  {
+                    title: '鍼灸治療',
+                    icon: 'spa',
+                    titleStyle: { backgroundColor: '#f9aa33', padding: '8px', borderRadius: '8px' },
+                    iconStyle: { color: '#3377f9' },
+                    items: [
                       {
                         icon: 'spa',
                         title: '鍼灸治療',
-                        price: '保険適用',
+                        hideTitle: true,
+                        hideIcon: true,
+                        price: '保険適用(税込)',
                         duration: '20分程度',
                         description: '保険適用の鍼灸治療で、痛みの緩和や血行改善を促進します。'
-                      },
+                      }
+                    ]
+                  },
+                  {
+                    title: 'マッサージ治療',
+                    icon: 'front_hand',
+                    titleStyle: { backgroundColor: '#f9aa33', padding: '8px', borderRadius: '8px' },
+                    iconStyle: { color: '#3377f9' },
+                    items: [
                       {
                         icon: 'front_hand',
                         title: 'マッサージ治療',
-                        price: '保険適用',
+                        hideTitle: true,
+                        hideIcon: true,
+                        price: '保険適用(税込)',
                         duration: '15分程度',
                         description: '機能回復や痛みの緩和を目的とした医療マッサージを行います。'
                       }
                     ]
                   }
                 ]}
+                columns={2}
                 gap="gap-6"
                 marginBottom="mb-8"
               />
