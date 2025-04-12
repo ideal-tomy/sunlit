@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import InfoCardGrid from '../components/InfoCardGrid';
+import OneColumnCard from '../components/OneColumnCard';
 
 const PrivateTreatment = () => {
   return (
@@ -76,48 +77,42 @@ const PrivateTreatment = () => {
           />
 
           {/* 特別整体メニュー */}
-          <InfoCardGrid
+          <h2 className="text-2xl font-bold mb-4 text-secondary-dark border-b-2 border-primary pb-2 text-center">特別整体メニュー</h2>
+          
+          <OneColumnCard
             menuGroups={[
               {
-                title: '特別整体メニュー',
+                title: '特別整体',
+                hideTitle: true,
                 icon: 'stars',
                 items: [
                   {
                     icon: 'attach_money',
-                    title: '料金・所要時間',
+                    title: '特別整体',
                     price: '¥8,800',
                     initialPrice: '¥7,800',
                     duration: '90分',
-                    description: '全身の調整に加え、特に気になる部分に時間をかけて丁寧に施術します。長期的な不調や複合的な症状にお悩みの方におすすめです。',
-                    bgColor: 'bg-primary bg-opacity-10'
+                    description: '全身の調整に加え、特に気になる部分に時間をかけて丁寧に施術します。長期的な不調や複合的な症状にお悩みの方におすすめです。'
                   }
                 ]
               }
             ]}
-            columns={1}
             gap="gap-8"
             marginBottom="mb-12"
           />
-          
-          {/* 画像セクション */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-            <div className="flex items-center justify-center">
-              <img src="/images/IMG_0158.jpg" alt="特別整体" className="rounded-lg shadow-md max-w-full h-auto" style={{ maxWidth: '300px', maxHeight: '200px' }} />
-            </div>
-            <div className="flex items-center justify-center">
-              <img src="/images/IMG_0158.jpg" alt="特別整体" className="rounded-lg shadow-md max-w-full h-auto" style={{ maxWidth: '300px', maxHeight: '200px' }} />
-            </div>
-          </div>
 
           {/* その他のケアメニュー */}
           <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-secondary-dark">その他のケアメニュー</h2>
           <p className="text-center text-lg mb-6 text-gray-700">お客様のお悩みに合わせたケアメニューをご用意しております</p>
           <div className="w-24 h-1 bg-primary mx-auto mb-12"></div>
           
+          <h2 className="text-2xl font-bold mb-6 text-secondary-dark text-center">リラックスケアメニュー</h2>
+          
           <InfoCardGrid
             menuGroups={[
               {
                 title: '足裏ケア',
+                hideTitle: true,
                 icon: 'spa',
                 items: [
                   {
@@ -125,36 +120,19 @@ const PrivateTreatment = () => {
                     title: '足裏ケア',
                     price: '¥3,600',
                     duration: '30分',
-                    description: '足裏の反射区を刺激し、全身の血行促進や疲労回復を促します。むくみや冷え性の改善にも効果的です。',
+                    description: '足裏の反射区を刷激し、全身の血行促進や疲労回復を促します。むくみや冷え性の改善にも効果的です。',
                     imageSrc: '/images/IMG_0042.jpg',
                     imageAlt: '足裏ケア'
                   }
                 ]
-              }
-            ]}
-            columns={1}
-            gap="gap-8"
-            marginBottom="mb-8"
-          />
-          
-          {/* 足裏ケアの画像 */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-            <div className="flex items-center justify-center">
-              <img src="/images/IMG_0042.jpg" alt="足裏ケア" className="rounded-lg shadow-md max-w-full h-auto" style={{ maxWidth: '300px', maxHeight: '200px' }} />
-            </div>
-            <div className="flex items-center justify-center">
-              <img src="/images/IMG_0042.jpg" alt="足裏ケア" className="rounded-lg shadow-md max-w-full h-auto" style={{ maxWidth: '300px', maxHeight: '200px' }} />
-            </div>
-          </div>
-
-          <InfoCardGrid
-            menuGroups={[
+              },
               {
                 title: '眼精疲労ケア',
-                icon: 'visibility',
+                hideTitle: true,
+                icon: 'spa',
                 items: [
                   {
-                    icon: 'visibility',
+                    icon: 'spa',
                     title: '眼精疲労ケア',
                     price: '¥3,600',
                     duration: '30分',
@@ -165,79 +143,61 @@ const PrivateTreatment = () => {
                 ]
               }
             ]}
-            columns={1}
-            gap="gap-8"
-            marginBottom="mb-8"
+            columns={2}
+            gap="gap-8 md:gap-16"
+            marginBottom="mb-12"
           />
           
-          {/* 眼精疲労ケアの画像 */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-            <div className="flex items-center justify-center">
-              <img src="/images/IMG_0044.jpg" alt="眼精疲労ケア" className="rounded-lg shadow-md max-w-full h-auto" style={{ maxWidth: '300px', maxHeight: '200px' }} />
-            </div>
-            <div className="flex items-center justify-center">
-              <img src="/images/IMG_0044.jpg" alt="眼精疲労ケア" className="rounded-lg shadow-md max-w-full h-auto" style={{ maxWidth: '300px', maxHeight: '200px' }} />
-            </div>
-          </div>
+          <div className="mb-12"></div>
 
+          <h2 className="text-2xl font-bold mb-6 text-secondary-dark text-center">特別ケアメニュー</h2>
+          
           <InfoCardGrid
             menuGroups={[
               {
                 title: 'ファンクショナルカッピング',
-                icon: 'fitness_center',
+                hideTitle: true,
+                icon: 'spa',
                 items: [
                   {
-                    icon: 'fitness_center',
+                    icon: 'spa',
                     title: 'ファンクショナルカッピング',
-                    price: '¥2,500',
-                    duration: '20分',
-                    description: '吸引カップを使用して筋肉の締張をほぐし、血行を促進します。肩こりや筋肉の凝りに効果的です。',
+                    price: '¥2,800',
+                    duration: '30分',
+                    description: '一般的な吸い玉法ではなく、筋肉や経絡に置くことでモビリティの向上や痛みの減少を目指す法です。',
                     imageSrc: '/images/IMG_0116.jpg',
                     imageAlt: 'ファンクショナルカッピング'
                   }
                 ]
-              }
-            ]}
-            columns={1}
-            gap="gap-8"
-            marginBottom="mb-8"
-          />
-          
-          {/* ファンクショナルカッピングの画像 */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-12">
-            <div className="flex items-center justify-center">
-              <img src="/images/IMG_0116.jpg" alt="ファンクショナルカッピング" className="rounded-lg shadow-md max-w-full h-auto" style={{ maxWidth: '300px', maxHeight: '200px' }} />
-            </div>
-            <div className="flex items-center justify-center">
-              <img src="/images/IMG_0116.jpg" alt="ファンクショナルカッピング" className="rounded-lg shadow-md max-w-full h-auto" style={{ maxWidth: '300px', maxHeight: '200px' }} />
-            </div>
-          </div>
-
-          <InfoCardGrid
-            menuGroups={[
+              },
               {
                 title: '極上ハンドケア',
-                icon: 'pan_tool',
+                hideTitle: true,
+                icon: 'spa',
                 items: [
                   {
-                    icon: 'pan_tool',
+                    icon: 'spa',
                     title: '極上ハンドケア',
                     price: '¥1,900',
                     duration: '15分',
                     description: '手や腕の疲れをほぐし、血行を促進します。スマホやパソコン操作で手や腕に疲れを感じる方におすすめです。',
-                    bgColor: 'bg-primary bg-opacity-10'
+                    imageSrc: '/images/00.png',
+                    imageAlt: '極上ハンドケア'
                   }
                 ]
               }
             ]}
-            columns={1}
-            gap="gap-8"
+            columns={2}
+            gap="gap-8 md:gap-16"
             marginBottom="mb-12"
           />
-
-          <div className="max-w-4xl mx-auto bg-accent p-6 rounded-lg shadow-md mb-12">
-            <h3 className="text-xl font-bold mb-4 text-secondary-dark">注意事項</h3>
-            <ul className="list-disc pl-6 space-y-2 text-gray-700">
+          
+          <div className="max-w-4xl mx-auto bg-white p-6 rounded-lg border-l-4 border-accent mb-12">
+            <h3 className="text-xl font-bold mb-4 text-secondary-dark flex items-center">
+              <span className="material-icons text-accent mr-2">info</span>
+              注意事項
+            </h3>
+            <ul className="list-disc pl-6 space-y-3 text-gray-700">
               <li>保険診療・各オプションも対応可能です。詳しくはスタッフにお尋ねください。</li>
               <li>状態や症状により、施術時間や内容が変更になる場合があります。</li>
               <li>ご予約の変更・キャンセルは、前日までにご連絡ください。</li>
@@ -245,7 +205,8 @@ const PrivateTreatment = () => {
           </div>
 
           <div className="text-center mb-12">
-            <Link to="/contact" className="inline-block bg-primary hover:bg-primary-dark text-white font-bold py-3 px-8 rounded-full transition duration-300 shadow-md">
+            <Link to="/contact" className="inline-block bg-primary hover:bg-primary-dark text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:-translate-y-1 flex items-center justify-center mx-auto">
+              <span className="material-icons mr-2">calendar_today</span>
               ご予約・お問い合わせはこちら
             </Link>
           </div>
