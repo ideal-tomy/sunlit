@@ -97,7 +97,7 @@ const InfoCardGrid: React.FC<InfoCardGridProps> = ({
           )}
         </div>
         <div className="mb-3 text-center">
-          <p className="text-2xl font-bold text-primary">{item.price}<span className="text-sm text-gray-600 ml-1">(税込)</span></p>
+          <p className="text-2xl font-bold text-primary">{item.price}</p>
           {item.initialPrice && (
             <p className="text-lg font-medium text-accent mt-1">初回 {item.initialPrice}</p>
           )}

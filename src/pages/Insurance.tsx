@@ -125,10 +125,12 @@ const Insurance = () => {
               </h2>
               
               {/* 整形外科とリハビリテーション */}
-              <h3 className="text-2xl font-bold mb-6 text-secondary-dark flex items-center justify-center">
-                <span className="material-icons text-primary mr-2">medical_services</span>
-                整形外科・リハビリテーション
-              </h3>
+              <div className="bg-primary bg-opacity-10 p-4 rounded-lg mb-8">
+                <h3 className="text-2xl font-bold text-secondary-dark flex items-center justify-center">
+                  <span className="material-icons text-primary mr-2">medical_services</span>
+                  整形外科・リハビリテーション
+                </h3>
+              </div>
               
               <InfoCardGrid
                 menuGroups={[
@@ -173,55 +175,57 @@ const Insurance = () => {
               />
               
               {/* 鍼灸治療とマッサージ治療 */}
-              <h3 className="text-2xl font-bold mb-6 text-secondary-dark flex items-center justify-center">
-                <span className="material-icons text-primary mr-2">spa</span>
-                鍼灸・マッサージ治療
-              </h3>
+              <div className="mt-16 mb-12">
+                <h3 className="text-2xl font-bold mb-6 text-secondary-dark text-center bg-primary-light py-3 px-4 rounded-lg border-l-4 border-primary">鍼灸・マッサージ治療</h3>
+                
+                <InfoCardGrid
+                  menuGroups={[
+                    {
+                      title: '鍼灸治療',
+                      icon: 'spa',
+                      titleStyle: { backgroundColor: '#f9aa33', padding: '8px', borderRadius: '8px' },
+                      iconStyle: { color: '#3377f9' },
+                      items: [
+                        {
+                          icon: 'spa',
+                          title: '鍼灸治療',
+                          hideTitle: true,
+                          hideIcon: true,
+                          price: '保険適用(税込)',
+                          duration: '20分程度',
+                          description: '保険適用の鍼灸治療で、痛みの緩和や血行改善を促進します。'
+                        }
+                      ]
+                    },
+                    {
+                      title: 'マッサージ治療',
+                      icon: 'front_hand',
+                      titleStyle: { backgroundColor: '#f9aa33', padding: '8px', borderRadius: '8px' },
+                      iconStyle: { color: '#3377f9' },
+                      items: [
+                        {
+                          icon: 'front_hand',
+                          title: 'マッサージ治療',
+                          hideTitle: true,
+                          hideIcon: true,
+                          price: '保険適用(税込)',
+                          duration: '15分程度',
+                          description: '機能回復や痛みの緩和を目的とした医療マッサージを行います。'
+                        }
+                      ]
+                    }
+                  ]}
+                  columns={2}
+                  gap="gap-6"
+                  marginBottom="mb-8"
+                />
+              </div>
               
-              <InfoCardGrid
-                menuGroups={[
-                  {
-                    title: '鍼灸治療',
-                    icon: 'spa',
-                    titleStyle: { backgroundColor: '#f9aa33', padding: '8px', borderRadius: '8px' },
-                    iconStyle: { color: '#3377f9' },
-                    items: [
-                      {
-                        icon: 'spa',
-                        title: '鍼灸治療',
-                        hideTitle: true,
-                        hideIcon: true,
-                        price: '保険適用(税込)',
-                        duration: '20分程度',
-                        description: '保険適用の鍼灸治療で、痛みの緩和や血行改善を促進します。'
-                      }
-                    ]
-                  },
-                  {
-                    title: 'マッサージ治療',
-                    icon: 'front_hand',
-                    titleStyle: { backgroundColor: '#f9aa33', padding: '8px', borderRadius: '8px' },
-                    iconStyle: { color: '#3377f9' },
-                    items: [
-                      {
-                        icon: 'front_hand',
-                        title: 'マッサージ治療',
-                        hideTitle: true,
-                        hideIcon: true,
-                        price: '保険適用(税込)',
-                        duration: '15分程度',
-                        description: '機能回復や痛みの緩和を目的とした医療マッサージを行います。'
-                      }
-                    ]
-                  }
-                ]}
-                columns={2}
-                gap="gap-6"
-                marginBottom="mb-8"
-              />
-              <p className="text-lg mt-4 text-gray-700">
-                以上のような保険診療の種類があります。当院では、保険診療と併用して更に早く完治できるように特別な電気治療や部分鍼治療を推奨しております。
-              </p>
+              <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-primary mt-12 mb-6">
+                <p className="text-lg text-gray-700">
+                  以上のような保険診療の種類があります。当院では、保険診療と併用して更に早く完治できるように<span className="font-bold text-primary">特別な電気治療や部分鍼治療</span>を推奨しております。
+                </p>
+              </div>
             </div>
 
             <div className="mb-12">
@@ -269,77 +273,29 @@ const Insurance = () => {
                   </div>
                 </div>
                 
-                <div className="relative z-10">
+                <div className="relative z-10 mb-8">
                   <div className="flex items-start">
                     <div className="bg-primary rounded-full text-white w-16 h-16 flex items-center justify-center mr-4 flex-shrink-0">
                       <span className="material-icons text-2xl">check_circle</span>
                     </div>
                     <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-primary flex-grow">
-                      <h3 className="text-xl font-bold mb-2 text-secondary-dark">4. 治療終了</h3>
-                      <p className="text-gray-700">症状の回復が確認された後、再発予防のためのアドバイスを行います。必要に応じてメンテナンスプランをご提案します。</p>
+                      <h3 className="text-xl font-bold mb-2 text-secondary-dark">4. 回復・終了</h3>
+                      <p className="text-gray-700">症状の改善を確認し、日常生活やスポーツ活動への復帰を支援します。必要に応じて再発防止のためのアドバイスも行います。</p>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-
-            <div className="bg-white p-8 rounded-lg border border-gray-200 mb-12">
-              <h2 className="text-2xl font-bold mb-6 text-center text-secondary-dark flex items-center justify-center">
-                <span className="material-icons text-primary mr-2">payments</span>
-                保険診療の料金
-              </h2>
               
-              <div className="mb-8">
-                <p className="text-lg text-gray-700 text-center mb-6">
-                  保険診療では、健康保険証の種類により自己負担額が異なります。
-                  以下は一般的な料金目安です。
-                </p>
-                
-                <div className="overflow-x-auto">
-                  <table className="w-full text-left rounded-lg overflow-hidden">
-                    <thead>
-                      <tr className="bg-primary text-white">
-                        <th className="px-6 py-3">項目</th>
-                        <th className="px-6 py-3">料金</th>
-                        <th className="px-6 py-3">備考</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr className="border-b hover:bg-gray-50">
-                        <td className="px-6 py-4 font-medium">初診料</td>
-                        <td className="px-6 py-4">900円</td>
-                        <td className="px-6 py-4">保険証の種類により負担割合が異なります</td>
-                      </tr>
-                      <tr className="border-b hover:bg-gray-50">
-                        <td className="px-6 py-4 font-medium">再診料</td>
-                        <td className="px-6 py-4">300円</td>
-                        <td className="px-6 py-4">保険証の種類により負担割合が異なります</td>
-                      </tr>
-                      <tr className="border-b hover:bg-gray-50">
-                        <td className="px-6 py-4 font-medium">治療料金</td>
-                        <td className="px-6 py-4">150円</td>
-                        <td className="px-6 py-4">施術内容により異なります</td>
-                      </tr>
-                      <tr className="hover:bg-gray-50">
-                        <td className="px-6 py-4 font-medium">薬剤料金</td>
-                        <td className="px-6 py-4">150円</td>
-                        <td className="px-6 py-4">処方内容により異なります</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <p className="text-sm text-gray-600 mt-4 text-center">※料金は税込み表示です。保険負担割合により実際の負担額は異なります。</p>
-              </div>
-              
-              <div className="bg-white p-6 rounded-lg border-l-4 border-accent mb-6">
-                <h3 className="text-lg font-bold mb-3 text-secondary-dark flex items-center">
-                  <span className="material-icons text-accent mr-2">info</span>
-                  保険診療の特徴
+              <div className="bg-accent bg-opacity-10 p-6 rounded-lg mt-8 mb-12">
+                <h3 className="text-xl font-bold mb-4 text-secondary-dark flex items-center">
+                  <span className="material-icons text-primary mr-2">info</span>
+                  保険診療に関する注意事項
                 </h3>
-                <ul className="list-disc pl-6 space-y-2 text-gray-700">
-                  <li><span className="font-medium">続けやすい</span>：保険適用のため自己負担が少なく、継続的な治療が可能です</li>
-                  <li><span className="font-medium">不安な怪我に通院しやすい</span>：初めての怪我や痛みでも、保険適用で安心して通院できます</li>
-                  <li><span className="font-medium">専門的な治療</span>：当院では保険診療と自由診療を組み合わせた最適な治療をご提案します</li>
+                <ul className="list-disc list-inside space-y-2 text-gray-700">
+                  <li>保険証は毎回ご持参ください</li>
+                  <li>保険適用の治療は医師の指示に基づいて行われます</li>
+                  <li>保険診療と自費診療を併用する場合は事前にご相談ください</li>
+                  <li>交通事故の場合は自賠責保険の適用となります</li>
                 </ul>
               </div>
               
