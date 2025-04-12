@@ -9,58 +9,85 @@ const Staff = () => {
         </div>
       </div>
       
-      <div className="py-20 px-4">
+      <div className="py-12 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto">
+          <div className="max-w-4xl mx-auto bg-white p-6 sm:p-8 rounded-lg shadow-sm mb-12">
+            <h2 className="text-2xl font-bold mb-6 text-secondary-dark text-center">サンリットウエストのスタッフ</h2>
+            
+            <div className="bg-accent bg-opacity-10 p-4 rounded-lg mb-6 border-l-4 border-primary">
+              <p className="text-lg text-gray-700">
+                当院のスタッフは、<span className="font-bold text-primary">豊富な経験と専門知識</span>を持ったプロフェッショナルが揃っています。
+                一人ひとりのお客様に対して、最適な施術とケアを提供します。
+              </p>
+            </div>
+          </div>
+          
           <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-secondary-dark">スタッフ紹介</h2>
           <div className="w-24 h-1 bg-primary mx-auto mb-12"></div>
           
           <div className="max-w-5xl mx-auto">
             <div className="mb-16">
-              <div className="flex flex-col md:flex-row items-center md:items-start gap-8 mb-8">
-                <div className="w-full md:w-1/3">
-                  <img 
-                    src="/images/staff04.jpeg" 
-                    alt="院長" 
-                    className="w-full h-auto rounded-lg shadow-lg"
-                  />
+              <div className="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:shadow-xl hover:-translate-y-1">
+                <div className="bg-primary bg-opacity-10 p-3 flex items-center">
+                  <span className="material-icons text-2xl text-primary mr-2">person</span>
+                  <h3 className="text-xl font-bold text-secondary-dark">院長 山田 太郎</h3>
                 </div>
-                <div className="w-full md:w-2/3">
-                  <h2 className="text-2xl font-bold mb-2 text-secondary-dark">院長 山田 太郎</h2>
-                  <p className="text-gray-600 mb-4">はり師・きゅう師・柔道整復師</p>
-                  <div className="bg-accent p-4 rounded-md mb-4">
-                    <h3 className="font-bold mb-2 text-secondary-dark">資格</h3>
-                    <ul className="list-disc pl-5 space-y-1">
-                      <li>国家資格 はり師免許</li>
-                      <li>国家資格 きゅう師免許</li>
-                      <li>国家資格 柔道整復師免許</li>
-                      <li>日本スポーツ協会公認アスレティックトレーナー</li>
-                    </ul>
+                <div className="p-6">
+                  <div className="flex flex-col md:flex-row items-center md:items-start gap-8 mb-8">
+                    <div className="w-full md:w-1/3">
+                      <img 
+                        src="/images/staff04.jpeg" 
+                        alt="院長" 
+                        className="w-full h-auto rounded-lg shadow-lg"
+                      />
+                    </div>
+                    <div className="w-full md:w-2/3">
+                      <p className="text-gray-600 mb-4">はり師・きゅう師・染道整復師</p>
+                      <div className="bg-accent bg-opacity-10 p-4 rounded-lg mb-4 border-l-4 border-primary">
+                        <div className="flex items-center mb-2">
+                          <span className="material-icons text-xl text-primary mr-2">verified</span>
+                          <h4 className="font-bold text-secondary-dark">資格</h4>
+                        </div>
+                        <ul className="list-disc pl-5 space-y-1">
+                          <li>国家資格 はり師免許</li>
+                          <li>国家資格 きゅう師免許</li>
+                          <li>国家資格 染道整復師免許</li>
+                          <li>日本スポーツ協会公認アスレティックトレーナー</li>
+                        </ul>
+                      </div>
+                      <p className="text-lg mb-4">
+                        はじめまして、サンリットウエスト鍼灸整骨院の院長を務めております山田太郎です。
+                        私は10年以上にわたり、鍼灸と整骨の分野で多くの患者様の痛みや不調の改善をサポートしてきました。
+                      </p>
+                      <p className="text-lg">
+                        当院では、東洋医学と西洋医学の知見を融合させた総合的なアプローチで、
+                        一人ひとりの症状や体質に合わせたオーダーメイドの治療を提供しています。
+                        皆様の健康と笑顔のために、精一杯サポートさせていただきます。
+                      </p>
+                    </div>
                   </div>
-                  <p className="text-lg mb-4">
-                    はじめまして、サンリットウエスト鍼灸整骨院の院長を務めております山田太郎です。
-                    私は10年以上にわたり、鍼灸と整骨の分野で多くの患者様の痛みや不調の改善をサポートしてきました。
-                  </p>
-                  <p className="text-lg">
-                    当院では、東洋医学と西洋医学の知見を融合させた総合的なアプローチで、
-                    一人ひとりの症状や体質に合わせたオーダーメイドの治療を提供しています。
-                    皆様の健康と笑顔のために、精一杯サポートさせていただきます。
-                  </p>
                 </div>
               </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
-              <div className="bg-white rounded-lg shadow-md overflow-hidden">
+              <div className="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:shadow-xl hover:-translate-y-1">
+                <div className="bg-primary bg-opacity-10 p-3 flex items-center">
+                  <span className="material-icons text-2xl text-primary mr-2">spa</span>
+                  <h3 className="text-xl font-bold text-secondary-dark">鍼灸師 佐藤 花子</h3>
+                </div>
                 <img 
                   src="/images/saff01.jpeg" 
                   alt="鍼灸師 佐藤 花子" 
                   className="w-full h-64 object-cover"
                 />
                 <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2 text-secondary-dark">鍼灸師 佐藤 花子</h3>
                   <p className="text-gray-600 mb-4">はり師・きゅう師</p>
-                  <div className="bg-accent p-4 rounded-md mb-4">
-                    <h4 className="font-bold mb-2 text-secondary-dark">専門分野</h4>
+                  <div className="bg-accent bg-opacity-10 p-4 rounded-lg mb-4 border-l-4 border-primary">
+                    <div className="flex items-center mb-2">
+                      <span className="material-icons text-xl text-primary mr-2">star</span>
+                      <h4 className="font-bold text-secondary-dark">専門分野</h4>
+                    </div>
                     <ul className="list-disc pl-5 space-y-1">
                       <li>美容鍼</li>
                       <li>女性特有の症状</li>
@@ -74,17 +101,23 @@ const Staff = () => {
                 </div>
               </div>
 
-              <div className="bg-white rounded-lg shadow-md overflow-hidden">
+              <div className="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:shadow-xl hover:-translate-y-1">
+                <div className="bg-primary bg-opacity-10 p-3 flex items-center">
+                  <span className="material-icons text-2xl text-primary mr-2">fitness_center</span>
+                  <h3 className="text-xl font-bold text-secondary-dark">染道整復師 鈴木 一郎</h3>
+                </div>
                 <img 
                   src="/images/staff02.jpeg" 
-                  alt="柔道整復師 鈴木 一郎" 
+                  alt="染道整復師 鈴木 一郎" 
                   className="w-full h-64 object-cover"
                 />
                 <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2 text-secondary-dark">柔道整復師 鈴木 一郎</h3>
                   <p className="text-gray-600 mb-4">柔道整復師</p>
-                  <div className="bg-accent p-4 rounded-md mb-4">
-                    <h4 className="font-bold mb-2 text-secondary-dark">専門分野</h4>
+                  <div className="bg-accent bg-opacity-10 p-4 rounded-lg mb-4 border-l-4 border-primary">
+                    <div className="flex items-center mb-2">
+                      <span className="material-icons text-xl text-primary mr-2">star</span>
+                      <h4 className="font-bold text-secondary-dark">専門分野</h4>
+                    </div>
                     <ul className="list-disc pl-5 space-y-1">
                       <li>スポーツ障害</li>
                       <li>外傷治療</li>

@@ -12,14 +12,19 @@ const PrivateTreatment = () => {
         </div>
       </div>
       
-      <div className="py-12 px-4">
+      <div className="py-12 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto">
-          <div className="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-sm mb-12">
-            <p className="text-lg mb-4 text-gray-700">
-              日常的な疲れ慢性的な不調など多くの症状に対応するメニューを用意しております。
-              症状に合わせた部分集中コースや全体をまんべんなく施術する全身コースなど豊富なメニュー
-              で辛い症状にアプローチをいたします。
-            </p>
+          <div className="max-w-4xl mx-auto bg-white p-6 sm:p-8 rounded-lg shadow-sm mb-12">
+            <h2 className="text-2xl font-bold mb-6 text-secondary-dark text-center">サンリットウエストの自由診療</h2>
+            
+            <div className="bg-accent bg-opacity-10 p-4 rounded-lg mb-6 border-l-4 border-primary">
+              <p className="text-lg text-gray-700">
+                日常的な疲れ慢性的な不調など多くの症状に対応するメニューを用意しております。
+                症状に合わせた部分集中コースや全体をまんべんなく施術する全身コースなど豊富なメニュー
+                で辛い症状にアプローチをいたします。
+              </p>
+            </div>
+            
             <p className="text-lg mb-4 text-gray-700">
               当院では女性施術者も常勤しておりますので
               女性施術者をご希望の際は気兼ねなくお申し付けください。
@@ -62,17 +67,27 @@ const PrivateTreatment = () => {
           />
 
           {/* 特別整体メニュー */}
-          <div className="mb-12 bg-accent p-6 rounded-lg shadow-md">
-            <h2 className="text-2xl font-bold mb-4 text-secondary-dark">特別整体メニュー</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-bold mb-2 text-secondary-dark">特別整体</h3>
-                <div className="flex justify-between items-center mb-2">
-                  <p className="text-3xl font-bold text-primary">¥8,800<span className="text-sm text-gray-600">(税込)</span></p>
-                  <p className="text-lg font-medium text-accent">初回 ¥7,800</p>
+          <div className="mb-12 bg-white p-6 rounded-lg shadow-lg">
+            <h2 className="text-2xl font-bold mb-4 text-secondary-dark border-b-2 border-primary pb-2">特別整体メニュー</h2>
+            <div className="mb-6">
+              <div className="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:shadow-xl hover:-translate-y-1">
+                <div className="bg-primary bg-opacity-10 p-3 flex items-center">
+                  <span className="material-icons text-2xl text-primary mr-2">attach_money</span>
+                  <h3 className="text-xl font-bold text-secondary-dark">料金・所要時間</h3>
                 </div>
-                <p className="text-gray-700 mb-4">所要時間：90分</p>
-                <p className="text-gray-700">全身の調整に加え、特に気になる部分に時間をかけて丁寧に施術します。長期的な不調や複合的な症状にお悩みの方におすすめです。</p>
+                <div className="p-5">
+                  <div className="flex justify-between items-center mb-2">
+                    <p className="text-3xl font-bold text-primary">¥8,800<span className="text-sm text-gray-600">(税込)</span></p>
+                    <p className="text-lg font-medium text-accent">初回 ¥7,800</p>
+                  </div>
+                  <p className="text-gray-700 mb-4">所要時間：90分</p>
+                  <p className="text-gray-700">全身の調整に加え、特に気になる部分に時間をかけて丁寧に施術します。長期的な不調や複合的な症状にお悩みの方におすすめです。</p>
+                </div>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="flex items-center justify-center">
+                <img src="/images/IMG_0158.jpg" alt="特別整体" className="rounded-lg shadow-md max-w-full h-auto" style={{ maxWidth: '300px', maxHeight: '200px' }} />
               </div>
               <div className="flex items-center justify-center">
                 <img src="/images/IMG_0158.jpg" alt="特別整体" className="rounded-lg shadow-md max-w-full h-auto" style={{ maxWidth: '300px', maxHeight: '200px' }} />
@@ -83,39 +98,87 @@ const PrivateTreatment = () => {
           {/* その他のケアメニュー */}
           <div className="mb-12 bg-white p-6 rounded-lg shadow-lg">
             <h2 className="text-2xl font-bold mb-4 text-secondary-dark border-b-2 border-primary pb-2">その他のケアメニュー</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-bold mb-2 text-secondary-dark">足裏ケア</h3>
-                <p className="text-3xl font-bold text-primary mb-2">¥3,600<span className="text-sm text-gray-600">(税込)</span></p>
-                <p className="text-gray-700 mb-4">所要時間：30分</p>
-                <p className="text-gray-700">足裏の反射区を刺激し、全身の血行促進や疲労回復を促します。むくみや冷え性の改善にも効果的です。</p>
+            
+            <div className="mb-6">
+              <div className="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:shadow-xl hover:-translate-y-1">
+                <div className="bg-primary bg-opacity-10 p-3 flex items-center">
+                  <span className="material-icons text-2xl text-primary mr-2">spa</span>
+                  <h3 className="text-xl font-bold text-secondary-dark">足裏ケア</h3>
+                </div>
+                <div className="p-5">
+                  <p className="text-3xl font-bold text-primary mb-2">¥3,600<span className="text-sm text-gray-600">(税込)</span></p>
+                  <p className="text-gray-700 mb-4">所要時間：30分</p>
+                  <p className="text-gray-700">足裏の反射区を刺激し、全身の血行促進や疲労回復を促します。むくみや冷え性の改善にも効果的です。</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+              <div className="flex items-center justify-center">
+                <img src="/images/IMG_0042.jpg" alt="足裏ケア" className="rounded-lg shadow-md max-w-full h-auto" style={{ maxWidth: '300px', maxHeight: '200px' }} />
               </div>
               <div className="flex items-center justify-center">
                 <img src="/images/IMG_0042.jpg" alt="足裏ケア" className="rounded-lg shadow-md max-w-full h-auto" style={{ maxWidth: '300px', maxHeight: '200px' }} />
               </div>
+            </div>
 
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-bold mb-2 text-secondary-dark">眼精疲労ケア</h3>
-                <p className="text-3xl font-bold text-primary mb-2">¥3,600<span className="text-sm text-gray-600">(税込)</span></p>
-                <p className="text-gray-700 mb-4">所要時間：30分</p>
-                <p className="text-gray-700">目の周りや頭部の緊張をほぐし、眼精疲労や頭痛の緩和を目指します。デスクワークやスマホ使用が多い方におすすめです。</p>
+            <div className="mb-6">
+              <div className="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:shadow-xl hover:-translate-y-1">
+                <div className="bg-primary bg-opacity-10 p-3 flex items-center">
+                  <span className="material-icons text-2xl text-primary mr-2">visibility</span>
+                  <h3 className="text-xl font-bold text-secondary-dark">眼精疲労ケア</h3>
+                </div>
+                <div className="p-5">
+                  <p className="text-3xl font-bold text-primary mb-2">¥3,600<span className="text-sm text-gray-600">(税込)</span></p>
+                  <p className="text-gray-700 mb-4">所要時間：30分</p>
+                  <p className="text-gray-700">目の周りや頭部の緊張をほぐし、眼精疲労や頭痛の緩和を目指します。デスクワークやスマホ使用が多い方におすすめです。</p>
+                </div>
               </div>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+              <div className="flex items-center justify-center">
+                <img src="/images/IMG_0044.jpg" alt="眼精疲労ケア" className="rounded-lg shadow-md max-w-full h-auto" style={{ maxWidth: '300px', maxHeight: '200px' }} />
+              </div>
+              <div className="flex items-center justify-center">
+                <img src="/images/IMG_0044.jpg" alt="眼精疲労ケア" className="rounded-lg shadow-md max-w-full h-auto" style={{ maxWidth: '300px', maxHeight: '200px' }} />
+              </div>
+            </div>
 
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-bold mb-2 text-secondary-dark">ファンクショナルカッピング</h3>
-                <p className="text-3xl font-bold text-primary mb-2">¥2,500<span className="text-sm text-gray-600">(税込)</span></p>
-                <p className="text-gray-700 mb-4">所要時間：20分</p>
-                <p className="text-gray-700">吸引カップを使用して筋肉の緊張をほぐし、血行を促進します。肩こりや筋肉の凝りに効果的です。</p>
+            <div className="mb-6">
+              <div className="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:shadow-xl hover:-translate-y-1">
+                <div className="bg-primary bg-opacity-10 p-3 flex items-center">
+                  <span className="material-icons text-2xl text-primary mr-2">fitness_center</span>
+                  <h3 className="text-xl font-bold text-secondary-dark">ファンクショナルカッピング</h3>
+                </div>
+                <div className="p-5">
+                  <p className="text-3xl font-bold text-primary mb-2">¥2,500<span className="text-sm text-gray-600">(税込)</span></p>
+                  <p className="text-gray-700 mb-4">所要時間：20分</p>
+                  <p className="text-gray-700">吸引カップを使用して筋肉の緊張をほぐし、血行を促進します。肩こりや筋肉の凝りに効果的です。</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+              <div className="flex items-center justify-center">
+                <img src="/images/IMG_0116.jpg" alt="ファンクショナルカッピング" className="rounded-lg shadow-md max-w-full h-auto" style={{ maxWidth: '300px', maxHeight: '200px' }} />
               </div>
               <div className="flex items-center justify-center">
                 <img src="/images/IMG_0116.jpg" alt="ファンクショナルカッピング" className="rounded-lg shadow-md max-w-full h-auto" style={{ maxWidth: '300px', maxHeight: '200px' }} />
               </div>
+            </div>
 
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-bold mb-2 text-secondary-dark">極上ハンドケア</h3>
-                <p className="text-3xl font-bold text-primary mb-2">¥1,900<span className="text-sm text-gray-600">(税込)</span></p>
-                <p className="text-gray-700 mb-4">所要時間：15分</p>
-                <p className="text-gray-700">手や腕の疲れをほぐし、血行を促進します。スマホやパソコン操作で手や腕に疲れを感じる方におすすめです。</p>
+            <div className="mb-6">
+              <div className="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:shadow-xl hover:-translate-y-1">
+                <div className="bg-primary bg-opacity-10 p-3 flex items-center">
+                  <span className="material-icons text-2xl text-primary mr-2">pan_tool</span>
+                  <h3 className="text-xl font-bold text-secondary-dark">極上ハンドケア</h3>
+                </div>
+                <div className="p-5">
+                  <p className="text-3xl font-bold text-primary mb-2">¥1,900<span className="text-sm text-gray-600">(税込)</span></p>
+                  <p className="text-gray-700 mb-4">所要時間：15分</p>
+                  <p className="text-gray-700">手や腕の疲れをほぐし、血行を促進します。スマホやパソコン操作で手や腕に疲れを感じる方におすすめです。</p>
+                </div>
               </div>
             </div>
           </div>
