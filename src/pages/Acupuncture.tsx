@@ -1,4 +1,5 @@
-import TwoColumnMenu from '../components/TwoColumnMenu';
+import InfoCardGrid from '../components/InfoCardGrid';
+import OneColumnCard from '../components/OneColumnCard';
 
 const Acupuncture = () => {
   return (
@@ -24,35 +25,25 @@ const Acupuncture = () => {
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 mb-8">
-              <div className="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:shadow-xl hover:-translate-y-1">
-                <div className="bg-white p-3 flex items-center">
-                  <span className="material-icons text-2xl text-primary mr-2">person</span>
-                  <h3 className="text-xl font-bold text-secondary-dark">
-                    一人ひとりに合わせたアプローチ
-                  </h3>
-                </div>
-                <div className="p-5">
-                  <p className="text-gray-700 leading-relaxed">
-                    当院の鍼灸治療は様々な症状でお困りの方に一人一人違った形でアプローチをすることを心がけています。
-                  </p>
-                </div>
-              </div>
-              
-              <div className="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:shadow-xl hover:-translate-y-1">
-                <div className="bg-secondary-light bg-opacity-10 p-3 flex items-center">
-                  <span className="material-icons text-2xl text-primary mr-2">healing</span>
-                  <h3 className="text-xl font-bold text-secondary-dark">
-                    局所治療と全身治療
-                  </h3>
-                </div>
-                <div className="p-5">
-                  <p className="text-gray-700 leading-relaxed">
-                    当院の鍼灸治療はコリや疲れに対する局所治療は勿論ですが、気・血の滞りを改善する為の全身への経絡治療も行います。
-                  </p>
-                </div>
-              </div>
-            </div>
+            <InfoCardGrid
+              items={[
+                {
+                  icon: 'person',
+                  title: '一人ひとりに合わせたアプローチ',
+                  description: '当院の鍼灸治療は様々な症状でお困りの方に一人一人違った形でアプローチをすることを心がけています。',
+                  bgColor: 'bg-white'
+                },
+                {
+                  icon: 'healing',
+                  title: '局所治療と全身治療',
+                  description: '当院の鍼灸治療はコリや疲れに対する局所治療は勘論ですが、気・血の滞りを改善する為の全身への経絡治療も行います。',
+                  bgColor: 'bg-secondary-light bg-opacity-10'
+                }
+              ]}
+              columns={2}
+              gap="gap-8 md:gap-16"
+              marginBottom="mb-8"
+            />
             
             <div className="bg-secondary-light bg-opacity-10 p-4 rounded-lg border-l-4 border-secondary">
               <h3 className="text-xl font-bold mb-2 text-secondary-dark">東洋医学の知恵</h3>
@@ -68,69 +59,74 @@ const Acupuncture = () => {
           <p className="text-center text-lg mb-6 text-gray-700">東洋医学の知恵を取り入れた完全オーダーメイドの施術で症状を改善します</p>
           <div className="w-24 h-1 bg-primary mx-auto mb-12"></div>
           
-          <div className="max-w-4xl mx-auto">
-            {/* 鍼灸メニュー（2カラム横並び） */}
-            <TwoColumnMenu
-              leftMenu={{
-                title: '全身鍼灸メニュー',
-                items: [
-                  {
-                    title: '全身鍼灸',
-                    price: '¥6,900',
-                    initialPrice: '¥5,900',
-                    duration: '60分',
-                    description: '全身の経絡に沿って鍼灸治療を行い、身体全体のバランスを整えます。慢性的な疲れや様々な不調にお悩みの方におすすめです。',
-                    imageSrc: '/images/acupuncture01.jpg',
-                    imageAlt: '全身鍼灸',
-                    hideTitle: true
-                  }
-                ]
-              }}
-              rightMenu={{
-                title: 'メンテナンス鍼灸メニュー',
-                items: [
-                  {
-                    title: 'メンテナンス鍼灸',
-                    price: '¥4,600',
-                    initialPrice: '¥4,100',
-                    duration: '30分',
-                    description: '定期的なメンテナンスとして、気になる部分を重点的に施術します。忙しい方や部分的な不調にお悩みの方に最適です。',
-                    imageSrc: '/images/IMG_0042.jpg',
-                    imageAlt: 'メンテナンス鍼灸',
-                    hideTitle: true
-                  }
-                ]
-              }}
+          {/* 鍼灸メニュー（2カラム横並び） */}
+            <InfoCardGrid
+              menuGroups={[
+                {
+                  title: '全身鍼灸メニュー',
+                  icon: 'spa',
+                  items: [
+                    {
+                      icon: 'spa',
+                      title: '全身鍼灸',
+                      price: '¥6,900',
+                      initialPrice: '¥5,900',
+                      duration: '60分',
+                      description: '全身の経絡に沿って鍼灸治療を行い、身体全体のバランスを整えます。慢性的な疲れや様々な不調にお悩みの方におすすめです。',
+                      imageSrc: '/images/acupuncture01.jpg',
+                      imageAlt: '全身鍼灸',
+                      hideTitle: true
+                    }
+                  ]
+                },
+                {
+                  title: 'メンテナンス鍼灸メニュー',
+                  icon: 'spa',
+                  items: [
+                    {
+                      icon: 'spa',
+                      title: 'メンテナンス鍼灸',
+                      price: '¥4,600',
+                      initialPrice: '¥4,100',
+                      duration: '30分',
+                      description: '定期的なメンテナンスとして、気になる部分を重点的に施術します。忙しい方や部分的な不調にお悩みの方に最適です。',
+                      imageSrc: '/images/IMG_0042.jpg',
+                      imageAlt: 'メンテナンス鍼灸',
+                      hideTitle: true
+                    }
+                  ]
+                }
+              ]}
+              columns={2}
+              gap="gap-8 md:gap-16"
+              marginBottom="mb-12"
             />
 
             {/* 部分鍼灸・マッサージ */}
-            <div className="mb-12 bg-white p-6 rounded-lg shadow-lg">
-              <h2 className="text-2xl font-bold mb-4 text-secondary-dark border-b-2 border-primary pb-2">部分鍼灸・マッサージ</h2>
-              <div className="mb-6">
-                <div className="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:shadow-xl hover:-translate-y-1">
-                  <div className="bg-primary bg-opacity-10 p-3 flex items-center">
-                    <span className="material-icons text-2xl text-primary mr-2">attach_money</span>
-                    <h3 className="text-xl font-bold text-secondary-dark">料金・所要時間</h3>
-                  </div>
-                  <div className="p-5">
-                    <p className="text-3xl font-bold text-primary mb-2">¥700〜<span className="text-sm text-gray-600">(税込)</span></p>
-                    <p className="text-gray-700 mb-4">所要時間：症状に応じて</p>
-                    <p className="text-gray-700">症状に合わせた治療法を提供します。肩こり、腰痛、頭痛など特定の部位の不調に効果的です。</p>
-                  </div>
-                </div>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="flex items-center justify-center">
-                  <img src="/images/IMG_0031.png" alt="部分鍼灸・マッサージ" className="rounded-lg shadow-md max-w-full h-auto" style={{ maxWidth: '300px', maxHeight: '200px' }} />
-                </div>
-                <div className="flex items-center justify-center">
-                  <img src="/images/03.png" alt="部分鍼灸・マッサージ" className="rounded-lg shadow-md max-w-full h-auto" style={{ maxWidth: '300px', maxHeight: '200px' }} />
-                </div>
-              </div>
-            </div>
+            <h2 className="text-2xl font-bold mb-4 text-secondary-dark border-b-2 border-primary pb-2 text-center">部分鍼灸・マッサージ</h2>
+            
+            <OneColumnCard
+              menuGroups={[
+                {
+                  title: '部分鍼灸・マッサージ',
+                  hideTitle: true,
+                  items: [
+                    {
+                      icon: 'attach_money',
+                      title: '料金・所要時間',
+                      price: '¥700〜',
+                      duration: '症状に応じて',
+                      description: '症状に合わせた治療法を提供します。肩こり、腰痛、頭痛など特定の部位の不調に効果的です。'
+                    }
+                  ]
+                }
+              ]}
+              gap="gap-8"
+              marginBottom="mb-6"
+            />
 
             <div className="mb-12 bg-white p-6 rounded-lg shadow-lg">
-              <h2 className="text-2xl font-bold mb-4 text-secondary-dark border-b-2 border-primary pb-2 flex items-center">
+              <h2 className="text-2xl font-bold mb-4 text-secondary-dark border-b-2 border-primary pb-2 flex items-center justify-center">
                 <span className="material-icons mr-2 text-primary">spa</span>
                 美容鍼
               </h2>
@@ -167,35 +163,25 @@ const Acupuncture = () => {
                   </div>
                 </div>
                 
-                <div className="flex flex-col md:flex-row gap-8 md:gap-16 mb-8">
-                  <div className="flex-1 bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:shadow-xl hover:-translate-y-1">
-                    <div className="bg-white p-3 flex items-center">
-                      <span className="material-icons text-2xl text-primary mr-2">science</span>
-                      <h3 className="text-xl font-bold text-secondary-dark">
-                        美容鍼の仕組み
-                      </h3>
-                    </div>
-                    <div className="p-5">
-                      <p className="text-gray-700 leading-relaxed">
-                        鍼を打つことでお顔に小さな傷が出来ます。傷がつくことで<span className="font-bold text-primary">【線維芽細胞】</span>が働き傷を修復します。傷を修復する時に自身の肌細胞が新しくなるため肌質の改善に繋がります。
-                      </p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex-1 bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:shadow-xl hover:-translate-y-1">
-                    <div className="bg-secondary-light bg-opacity-10 p-3 flex items-center">
-                      <span className="material-icons text-2xl text-primary mr-2">favorite</span>
-                      <h3 className="text-xl font-bold text-secondary-dark">
-                        血流改善の効果
-                      </h3>
-                    </div>
-                    <div className="p-5">
-                      <p className="text-gray-700 leading-relaxed">
-                        鍼を打つことで血流の改善がみられ固まった表情筋が柔らかくなり、重たい老廃物も流れるため<span className="font-bold text-primary">術後すぐに引きあがった実感</span>を得られます。
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                <InfoCardGrid
+                  items={[
+                    {
+                      icon: 'science',
+                      title: '美容鍼の仕組み',
+                      description: '鍼を打つことでお顔に小さな傷が出来ます。傷がつくことで【線維芽細胞】が働き傷を修復します。傷を修復する時に自身の肥細胞が新しくなるため肥質の改善に繋がります。',
+                      bgColor: 'bg-white'
+                    },
+                    {
+                      icon: 'favorite',
+                      title: '血流改善の効果',
+                      description: '鍼を打つことで血流の改善がみられ固まった表情筋が柔らかくなり、重たい老廃物も流れるため術後すぐに引きあがった実感を得られます。',
+                      bgColor: 'bg-secondary-light bg-opacity-10'
+                    }
+                  ]}
+                  columns={2}
+                  gap="gap-8 md:gap-16"
+                  marginBottom="mb-8"
+                />
                 
                 <div className="bg-accent bg-opacity-10 p-4 rounded-lg border-l-4 border-accent">
                   <h3 className="flex items-center text-xl font-bold mb-2 text-secondary-dark">
@@ -210,39 +196,47 @@ const Acupuncture = () => {
               </div>
             </div>
 
-            <TwoColumnMenu
-              leftMenu={{
-                title: '美容鍼（40分）',
-                items: [
-                  {
-                    title: '美容鍼',
-                    price: '¥5,700',
-                    initialPrice: '¥5,200',
-                    duration: '40分',
-                    description: 'お顔のたるみやシワ、くすみなどにアプローチ。リフトアップ効果と磁気改善が期待できます。',
-                    imageSrc: '/images/IMG_0116.jpg',
-                    imageAlt: '美容鍼',
-                    hideTitle: true
-                  }
-                ]
-              }}
-              rightMenu={{
-                title: 'プラチナ美容鍼（60分）',
-                items: [
-                  {
-                    title: 'プラチナ美容鍼',
-                    price: '¥7,800',
-                    initialPrice: '¥6,800',
-                    duration: '60分',
-                    description: '標準コースに加え、首・肩・デコルテのケアや特殊マッサージを含む超贐沢コース。',
-                    imageSrc: '/images/05.png',
-                    imageAlt: 'プラチナ美容鍼',
-                    hideTitle: true
-                  }
-                ]
-              }}
+            <InfoCardGrid
+              menuGroups={[
+                {
+                  title: '美容鍼（40分）',
+                  icon: 'spa',
+                  items: [
+                    {
+                      icon: 'spa',
+                      title: '美容鍼',
+                      price: '¥5,700',
+                      initialPrice: '¥5,200',
+                      duration: '40分',
+                      description: 'お顔のたるみやシワ、くすみなどにアプローチ。リフトアップ効果と磁気改善が期待できます。',
+                      imageSrc: '/images/IMG_0116.jpg',
+                      imageAlt: '美容鍼',
+                      hideTitle: true
+                    }
+                  ]
+                },
+                {
+                  title: 'プラチナ美容鍼（60分）',
+                  icon: 'spa',
+                  items: [
+                    {
+                      icon: 'spa',
+                      title: 'プラチナ美容鍼',
+                      price: '¥7,800',
+                      initialPrice: '¥6,800',
+                      duration: '60分',
+                      description: '標準コースに加え、首・肩・デコルテのケアや特殊マッサージを含む超贐沃コース。',
+                      imageSrc: '/images/05.png',
+                      imageAlt: 'プラチナ美容鍼',
+                      hideTitle: true
+                    }
+                  ]
+                }
+              ]}
+              columns={2}
+              gap="gap-8 md:gap-16"
+              marginBottom="mb-12"
             />
-          </div>
         </div>
       </div>
     </div>
