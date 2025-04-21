@@ -37,11 +37,11 @@ const Staff = () => {
                   />
                 </div>
                 <div className="md:w-1/2">
-                  <div className="bg-primary bg-opacity-10 p-4 flex items-center">
-                    <span className="material-icons text-3xl text-primary mr-3">person</span>
-                    <h3 className="text-2xl font-bold text-secondary-dark">院長 落合 竹一</h3>
-                  </div>
                   <div className="p-6">
+                    <div className="flex items-center mb-3">
+                      <span className="material-icons text-3xl text-primary mr-3">person</span>
+                      <h3 className="text-2xl font-bold text-secondary-dark">院長 落合 竹一</h3>
+                    </div>
                     <p className="text-lg text-gray-600 mb-4">柔道整復師・鍼灸師</p>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
@@ -85,11 +85,11 @@ const Staff = () => {
                   />
                 </div>
                 <div className="md:w-1/2">
-                  <div className="bg-primary bg-opacity-10 p-4 flex items-center">
-                    <span className="material-icons text-3xl text-primary mr-3">person</span>
-                    <h3 className="text-2xl font-bold text-secondary-dark">高橋翔太</h3>
-                  </div>
                   <div className="p-6">
+                    <div className="flex items-center mb-3">
+                      <span className="material-icons text-3xl text-primary mr-3">person</span>
+                      <h3 className="text-2xl font-bold text-secondary-dark">高橋翔太</h3>
+                    </div>
                     <p className="text-lg text-gray-600 mb-4">柔道整復師</p>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
@@ -133,11 +133,11 @@ const Staff = () => {
                   />
                 </div>
                 <div className="md:w-1/2">
-                  <div className="bg-primary bg-opacity-10 p-4 flex items-center">
-                    <span className="material-icons text-3xl text-primary mr-3">person</span>
-                    <h3 className="text-2xl font-bold text-secondary-dark">坂口舞</h3>
-                  </div>
                   <div className="p-6">
+                    <div className="flex items-center mb-3">
+                      <span className="material-icons text-3xl text-primary mr-3">person</span>
+                      <h3 className="text-2xl font-bold text-secondary-dark">坂口舞</h3>
+                    </div>
                     <p className="text-lg text-gray-600 mb-4">柔道整復師</p>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
@@ -181,11 +181,11 @@ const Staff = () => {
                   />
                 </div>
                 <div className="md:w-1/2">
-                  <div className="bg-primary bg-opacity-10 p-4 flex items-center">
-                    <span className="material-icons text-3xl text-primary mr-3">person</span>
-                    <h3 className="text-2xl font-bold text-secondary-dark">落合桃子</h3>
-                  </div>
                   <div className="p-6">
+                    <div className="flex items-center mb-3">
+                      <span className="material-icons text-3xl text-primary mr-3">person</span>
+                      <h3 className="text-2xl font-bold text-secondary-dark">落合桃子</h3>
+                    </div>
                     <p className="text-lg text-gray-600 mb-4">セラピスト</p>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">

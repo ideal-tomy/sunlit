@@ -1,22 +1,25 @@
-import { Link } from 'react-router-dom';
+import BlogCard from '../components/blog/BlogCard';
+import CategoryBadge from '../components/blog/CategoryBadge';
 
 const Blog = () => {
   // ブログ記事のサンプルデータ
   const blogPosts = [
     {
-      id: 1,
+      id: "sample-post-1",
       title: '肩こりの原因と日常でできるケア方法',
       date: '2023-10-15',
       excerpt: '現代人に多い肩こりの原因と、自宅でできる簡単なストレッチや生活習慣の改善方法についてご紹介します。',
-      image: '/images/blog01.jpg',
-      category: '健康コラム'
+      image: '/images/03-01.png',
+      category: '健康コラム',
+      isFeatured: true, // サンプル記事としてフィーチャー
+      content: '肩こりは現代社会において非常に一般的な症状です。デスクワークの増加やスマートフォンの普及により、多くの人が肩こりに悩まされています。この記事では、効果的なストレッチ方法や日常生活での改善策をご紹介します。'
     },
     {
       id: 2,
       title: '腰痛予防のための正しい姿勢と運動法',
       date: '2023-09-28',
       excerpt: '慢性的な腰痛に悩む方へ。正しい座り方や立ち方、効果的な腰痛予防エクササイズをご紹介します。',
-      image: '/images/blog02.jpg',
+      image: '/images/03-01.png',
       category: '健康コラム'
     },
     {
@@ -24,7 +27,7 @@ const Blog = () => {
       title: '鍼灸治療で改善する自律神経の乱れ',
       date: '2023-09-10',
       excerpt: '自律神経の乱れによる様々な症状と、鍼灸治療がどのように効果をもたらすのかを解説します。',
-      image: '/images/blog03.jpg',
+      image: '/images/03-01.png',
       category: '鍼灸'
     },
     {
@@ -32,7 +35,7 @@ const Blog = () => {
       title: '季節の変わり目に気をつけたい健康管理',
       date: '2023-08-22',
       excerpt: '季節の変わり目は体調を崩しやすい時期です。免疫力を高め、健康を維持するためのポイントをご紹介します。',
-      image: '/images/blog04.jpg',
+      image: '/images/03-01.png',
       category: '健康コラム'
     },
     {
@@ -40,7 +43,7 @@ const Blog = () => {
       title: 'スポーツ障害の予防と早期回復のコツ',
       date: '2023-08-05',
       excerpt: 'スポーツ愛好家の方必見！怪我の予防方法とケガをしてしまった場合の早期回復のためのアドバイスをご紹介します。',
-      image: '/images/blog05.jpg',
+      image: '/images/03-01.png',
       category: '整骨院'
     },
     {
@@ -48,7 +51,7 @@ const Blog = () => {
       title: '美容鍼の効果とアフターケア',
       date: '2023-07-20',
       excerpt: '注目を集める美容鍼の効果的なメカニズムと、効果を持続させるためのアフターケアについて解説します。',
-      image: '/images/blog06.jpg',
+      image: '/images/03-01.png',
       category: '美容鍼'
     }
   ];
@@ -76,49 +79,58 @@ const Blog = () => {
                 すべて
               </button>
               <button className="bg-white text-secondary px-4 py-2 rounded-md border border-secondary hover:bg-accent transition-colors duration-300">
-                健康コラム
+                <CategoryBadge name="健康コラム" withLink={false} size="md" />
               </button>
               <button className="bg-white text-secondary px-4 py-2 rounded-md border border-secondary hover:bg-accent transition-colors duration-300">
-                鍼灸
+                <CategoryBadge name="鍼灸" withLink={false} size="md" />
               </button>
               <button className="bg-white text-secondary px-4 py-2 rounded-md border border-secondary hover:bg-accent transition-colors duration-300">
-                整骨院
+                <CategoryBadge name="整骨院" withLink={false} size="md" />
               </button>
               <button className="bg-white text-secondary px-4 py-2 rounded-md border border-secondary hover:bg-accent transition-colors duration-300">
-                美容鍼
+                <CategoryBadge name="美容鍼" withLink={false} size="md" />
               </button>
             </div>
 
             {/* ブログ記事一覧 */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {blogPosts.map(post => (
-                <div key={post.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                  <div className="h-48 overflow-hidden">
-                    <img 
-                      src={post.image} 
-                      alt={post.title} 
-                      className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <div className="flex justify-between items-center mb-3">
-                      <span className="bg-accent text-secondary-dark text-sm px-3 py-1 rounded-full">{post.category}</span>
-                      <span className="text-gray-500 text-sm">{post.date}</span>
-                    </div>
-                    <h2 className="text-xl font-bold mb-3 text-secondary-dark hover:text-primary transition-colors duration-300">
-                      <Link to={`/blog/${post.id}`}>{post.title}</Link>
-                    </h2>
-                    <p className="text-gray-700 mb-4">{post.excerpt}</p>
-                    <Link 
-                      to={`/blog/${post.id}`}
-                      className="text-primary font-medium hover:text-primary-dark transition-colors duration-300 flex items-center"
-                    >
-                      続きを読む
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                      </svg>
-                    </Link>
-                  </div>
+              {/* フィーチャー記事 - サンプル記事として全幅表示 */}
+              {blogPosts.filter(post => post.isFeatured).map(post => (
+                <div key={post.id} className="col-span-1 md:col-span-2 lg:col-span-3 mb-8">
+                  <BlogCard
+                    id={post.id.toString()}
+                    title={post.title}
+                    publishedAt={post.date}
+                    eyecatch={{
+                      url: post.image,
+                      alt: post.title
+                    }}
+                    excerpt={post.excerpt}
+                    category={{
+                      name: post.category
+                    }}
+                    variant="featured"
+                  />
+                </div>
+              ))}
+              
+              {/* 通常の記事一覧 */}
+              {blogPosts.filter(post => !post.isFeatured).map(post => (
+                <div key={post.id}>
+                  <BlogCard
+                    id={post.id.toString()}
+                    title={post.title}
+                    publishedAt={post.date}
+                    eyecatch={{
+                      url: post.image,
+                      alt: post.title
+                    }}
+                    excerpt={post.excerpt}
+                    category={{
+                      name: post.category
+                    }}
+                    variant="normal"
+                  />
                 </div>
               ))}
             </div>
@@ -136,7 +148,7 @@ const Blog = () => {
                   3
                 </button>
                 <button className="w-10 h-10 rounded-md bg-white text-secondary border border-secondary hover:bg-accent transition-colors duration-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <svg xmlns="http://www.w3.org/2000/svg" style={{ width: '10px', height: '10px' }} viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
                   </svg>
                 </button>
