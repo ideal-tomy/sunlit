@@ -1,5 +1,9 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
+import AuthorInfo from '../components/blog/AuthorInfo';
+import CategoryBadge from '../components/blog/CategoryBadge';
+import TagList from '../components/blog/TagList';
+import RelatedPosts from '../components/blog/RelatedPosts';
 
 // ブログ記事のインターフェース定義（microCMS用のフィールド構造）
 interface BlogPost {
@@ -173,9 +177,13 @@ const sampleBlogPost: BlogPost = {
 
 const BlogPost: React.FC = () => {
   // 実際のアプリではURLパラメータからIDを取得し、APIから記事データを取得します
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { id } = useParams<{ id: string }>();
   // 本来はIDを使用してAPIから取得するが、サンプルとして静的データを使用
   const post = sampleBlogPost;
+  // 注: 将来的な実装では次のようにidを使用します
+  // const post = fetchPostById(id);
+  console.log(`記事ID: ${id}を表示中（サンプルデータを使用）`);
 
   // 日付のフォーマット関数
   const formatDate = (dateString: string) => {
@@ -205,9 +213,9 @@ const BlogPost: React.FC = () => {
             {/* 記事メタ情報 */}
             <div className="flex flex-wrap justify-between items-center mb-6 pb-4 border-b border-gray-200">
               <div className="flex flex-wrap items-center mb-2 md:mb-0">
-                <span className="bg-primary text-white text-sm px-3 py-1 rounded-full mr-3 mb-2 md:mb-0">
-                  {post.category.name}
-                </span>
+                <div className="mr-3 mb-2 md:mb-0">
+                  <CategoryBadge name={post.category.name} slug={post.category.id} size="md" />
+                </div>
                 <span className="text-gray-500 text-sm">
                   公開: {formatDate(post.publishedAt)}
                 </span>
@@ -234,17 +242,16 @@ const BlogPost: React.FC = () => {
             </div>
             
             {/* 著者情報 */}
-            <div className="flex items-center mb-6 p-4 bg-gray-50 rounded-lg">
-              <img 
-                src={post.author.image.url} 
-                alt={post.author.name} 
-                className="w-12 h-12 rounded-full object-cover mr-4 border-2 border-primary"
-              />
-              <div>
-                <h4 className="font-bold text-secondary-dark">{post.author.name}</h4>
-                <p className="text-gray-600 text-sm">{post.author.profile}</p>
-              </div>
-            </div>
+            <AuthorInfo
+              name={post.author.name}
+              role=""
+              profile={post.author.profile}
+              image={{
+                url: post.author.image.url,
+                alt: `${post.author.name}のプロフィール画像`
+              }}
+              variant="detailed"
+            />
             
             {/* 記事本文 */}
             <div 
@@ -254,52 +261,14 @@ const BlogPost: React.FC = () => {
             
             {/* タグ */}
             {post.tags && post.tags.length > 0 && (
-              <div className="flex flex-wrap gap-2 mb-8">
-                <span className="text-secondary-dark text-sm mr-2 font-semibold">タグ: </span>
-                {post.tags.map(tag => (
-                  <Link 
-                    key={tag.id} 
-                    to={`/blog/tag/${tag.id}`}
-                    className="bg-primary bg-opacity-10 text-primary-dark text-sm px-3 py-1 rounded-full hover:bg-primary hover:text-white transition-colors"
-                  >
-                    #{tag.name}
-                  </Link>
-                ))}
+              <div className="mb-6">
+                <TagList tags={post.tags} variant="default" />
               </div>
             )}
             
             {/* 関連記事 */}
             {post.relatedPosts && post.relatedPosts.length > 0 && (
-              <div className="mt-10 pt-6 border-t border-gray-200">
-                <h3 className="text-xl font-bold mb-4 text-secondary-dark flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="mr-2" style={{ width: '10px', height: '10px' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                  関連記事
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {post.relatedPosts.map(relatedPost => (
-                    <Link 
-                      key={relatedPost.id}
-                      to={`/blog/${relatedPost.id}`} 
-                      className="flex bg-gray-50 rounded-lg overflow-hidden hover:shadow-md transition-all duration-300 hover:translate-y-[-2px]"
-                    >
-                      <div className="w-1/3">
-                        <img 
-                          src={relatedPost.eyecatch.url} 
-                          alt={relatedPost.title} 
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <div className="w-2/3 p-3">
-                        <h4 className="font-bold text-secondary-dark hover:text-primary transition-colors line-clamp-2">
-                          {relatedPost.title}
-                        </h4>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              </div>
+              <RelatedPosts posts={post.relatedPosts} title="関連記事" />
             )}
             
             {/* 戻るボタン */}

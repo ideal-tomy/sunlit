@@ -114,9 +114,9 @@ const Blog = () => {
                 </div>
               ))}
               
-              {/* 通常の記事一覧 */}
+              {/* 通常の記事一覧 - 2カラムに統一 */}
               {blogPosts.filter(post => !post.isFeatured).map(post => (
-                <div key={post.id}>
+                <div key={post.id} className="col-span-1 md:col-span-2 lg:col-span-3 mb-8">
                   <BlogCard
                     id={post.id.toString()}
                     title={post.title}
@@ -129,7 +129,7 @@ const Blog = () => {
                     category={{
                       name: post.category
                     }}
-                    variant="normal"
+                    variant="featured"
                   />
                 </div>
               ))}
