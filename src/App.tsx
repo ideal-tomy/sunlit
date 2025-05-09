@@ -11,9 +11,8 @@ import Acupuncture from './pages/Acupuncture';
 import PrivateTreatment from './pages/PrivateTreatment';
 import Insurance from './pages/Insurance';
 import Staff from './pages/Staff';
-import Blog from './pages/Blog';
+import Instagram from './pages/Instagram';
 import Contact from './pages/Contact';
-import BlogPost from './pages/BlogPost';
 
 function App() {
   return (
@@ -27,8 +26,7 @@ function App() {
             <Route path="/private-treatment" element={<PrivateTreatment />} />
             <Route path="/insurance" element={<Insurance />} />
             <Route path="/staff" element={<Staff />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/:id" element={<BlogPost />} />
+            <Route path="/instagram" element={<Instagram />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>
