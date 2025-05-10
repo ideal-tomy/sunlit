@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 const Contact = () => {
+  // 問い合わせフォームの状態管理
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -9,6 +10,7 @@ const Contact = () => {
     message: ''
   });
 
+  // フォーム入力変更ハンドラ
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -17,12 +19,11 @@ const Contact = () => {
     }));
   };
 
+  // フォーム送信ハンドラ
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // ここに実際のフォーム送信処理を実装
-    console.log('フォームデータ:', formData);
     alert('お問い合わせありがとうございます。内容を確認の上、折り返しご連絡いたします。');
-    // フォームをリセット
     setFormData({
       name: '',
       email: '',
@@ -45,13 +46,79 @@ const Contact = () => {
       <div className="py-20 px-4">
         <div className="container mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-secondary-dark">お問い合わせ</h2>
-          <div className="w-24 h-1 bg-primary mx-auto mb-12"></div>
+          <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
           
           <div className="max-w-4xl mx-auto">
+            <p className="text-lg text-center mb-8">
+              サンリットウエスト鍼灸整骨院へのお問い合わせは、下記の方法で受け付けております。<br />
+              まずはチャットボットやFAQでご確認いただくと、よりスムーズにご案内できます。
+            </p>
+            
+            {/* FAQセクション */}
             <div className="bg-white p-8 rounded-lg shadow-md mb-12">
-              <p className="text-lg text-center mb-8">
-                サンリットウエスト鍼灸整骨院へのお問い合わせは、以下のフォームまたはお電話にてお願いいたします。<br />
-                ご予約・ご質問など、お気軽にお問い合わせください。
+              <h3 className="text-2xl font-bold mb-4 text-center text-secondary-dark">よくある質問</h3>
+              <p className="text-center mb-6">
+                よくいただく質問と回答をまとめました。
+                ご不明点の解決にお役立てください。
+              </p>
+              
+              {/* アコーディオンFAQ - 以下はサンプルです */}
+              <div className="space-y-4">
+                {/* FAQ項目1 */}
+                <details className="bg-gray-50 p-4 rounded-lg cursor-pointer">
+                  <summary className="font-medium text-secondary-dark">初めての来院の流れを教えてください</summary>
+                  <div className="mt-4 pl-4 text-gray-700">
+                    <p>初めてのご来院は以下の流れです。</p>
+                    <ol className="list-decimal pl-5 mt-2 space-y-1">
+                      <li>お電話またはウェブサイトからご予約ください</li>
+                      <li>来院日に受付で問診票に必要事項をご記入ください</li>
+                      <li>現在のお怪我や既往歴をお伝えください</li>
+                      <li>診察・検査を行います</li>
+                      <li>医師から診断結果と治療方針の説明を受けます</li>
+                      <li>治療を行います</li>
+                    </ol>
+                  </div>
+                </details>
+                
+                {/* FAQ項目2 */}
+                <details className="bg-gray-50 p-4 rounded-lg cursor-pointer">
+                  <summary className="font-medium text-secondary-dark">保険は使えますか？</summary>
+                  <div className="mt-4 pl-4 text-gray-700">
+                    <p>はい、当院では健康保険を使用した治療も行っております。交通事故や労災の場合は各種保険が適用されることがあります。詳しくは受付にてお尋ねください。</p>
+                  </div>
+                </details>
+                
+                {/* FAQ項目3 */}
+                <details className="bg-gray-50 p-4 rounded-lg cursor-pointer">
+                  <summary className="font-medium text-secondary-dark">予約は必要ですか？</summary>
+                  <div className="mt-4 pl-4 text-gray-700">
+                    <p>予約の上ご来院いただくとお待ち時間が少なくて済みますが、飛び込みでのご来院も可能です。ただし、混雑状況によってはお待ちいただく場合がありますので、可能な限り事前のご予約をお勧めしております。</p>
+                  </div>
+                </details>
+                
+                {/* FAQ項目4 */}
+                <details className="bg-gray-50 p-4 rounded-lg cursor-pointer">
+                  <summary className="font-medium text-secondary-dark">金額は事前にわかりますか？</summary>
+                  <div className="mt-4 pl-4 text-gray-700">
+                    <p>保険診療の場合は保険診療の自己負担分、自由診療の場合は施術内容によって料金が異なります。診察後にご提案する治療方針と合わせて、ご来院時に詳しくご説明いたします。</p>
+                  </div>
+                </details>
+                
+                {/* FAQ項目5 */}
+                <details className="bg-gray-50 p-4 rounded-lg cursor-pointer">
+                  <summary className="font-medium text-secondary-dark">駅からのアクセス方法を教えてください</summary>
+                  <div className="mt-4 pl-4 text-gray-700">
+                    <p>最寄駅からのアクセス方法については、当院までの約のルートについてお電話でお尋ねいただくか、Googleマップで「サンリットウエスト鍼灸整骨院」と検索いただくと詳しいルートが表示されます。</p>
+                  </div>
+                </details>
+              </div>
+            </div>
+            
+            {/* 問い合わせフォームセクション */}
+            <div className="bg-white p-8 rounded-lg shadow-md mb-12">
+              <h3 className="text-2xl font-bold mb-4 text-center text-secondary-dark">お問い合わせフォーム</h3>
+              <p className="text-center mb-8">
+                上記で解決しないご質問やご予約などは、以下のフォームまたはお電話にてお問い合わせください。
               </p>
               
               <div className="mb-8 text-center">
