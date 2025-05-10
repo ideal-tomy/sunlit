@@ -56,8 +56,8 @@ const Contact = () => {
               
               <div className="mb-8 text-center">
                 <h3 className="text-xl font-bold mb-2 text-secondary-dark">お電話でのお問い合わせ</h3>
-                <p className="text-2xl font-bold text-primary">03-1234-5678</p>
-                <p className="text-gray-600">受付時間: 平日 9:00〜20:00 / 土日祝 9:00〜18:00</p>
+                <p className="text-2xl font-bold text-primary">046-204-7870</p>
+                <p className="text-gray-600">受付時間: 平日 10:00〜19:30 / 土曜 10:00〜17:00（日曜・祝日定休）</p>
               </div>
               
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -161,31 +161,29 @@ const Contact = () => {
                 <div>
                   <p className="mb-4">
                     <strong>住所：</strong><br />
-                    〒123-4567<br />
-                    東京都新宿区西新宿1-2-3<br />
-                    サンリットビル2F
+                    神奈川県海老名市中野2-19-7<br />
+                    サンリットウエストH
                   </p>
                   <p className="mb-4">
-                    <strong>最寄り駅：</strong><br />
-                    JR新宿駅 西口から徒歩5分<br />
-                    都営大江戸線 新宿西口駅から徒歩3分
+                    <strong>電話番号：</strong><br />
+                    046-204-7870
                   </p>
                   <p>
-                    <strong>診療時間：</strong><br />
-                    平日：9:00〜20:00<br />
-                    土日祝：9:00〜18:00<br />
-                    <span className="text-gray-600">※ 水曜定休</span>
+                    <strong>受付時間：</strong><br />
+                    平日：10:00〜19:30<br />
+                    土曜日：10:00〜17:00<br />
+                    <span className="text-gray-600">※ 定休日：日曜・祝日</span>
                   </p>
                 </div>
                 <div className="h-64 md:h-auto">
                   <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.828030689816!2d139.6986551!3d35.6938398!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188cd4b71a37a1%3A0xf2495d5e9e74ab96!2z5paw5a6_6aeF!5e0!3m2!1sja!2sjp!4v1637134756951!5m2!1sja!2sjp" 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3251.73134423394!2d139.37269607533497!3d35.41190917267532!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60185533352d2663%3A0x8aaf62a1b1e27869!2z44K144Oz44Oq44OD44OI44Km44Ko44K544OI6Y2854G45pW06aqo6Zmi!5e0!3m2!1sja!2sjp!4v1746880794608!5m2!1sja!2sjp" 
                     width="100%" 
                     height="100%" 
                     style={{ border: 0, borderRadius: '0.375rem' }} 
                     allowFullScreen={true} 
                     loading="lazy"
-                    title="Google Map"
+                    title="サンリットウエスト鍼灸整骨院 Google Map"
                   ></iframe>
                 </div>
               </div>

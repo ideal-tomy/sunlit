@@ -265,13 +265,12 @@ const Home = () => {
             <div className="md:w-1/2 mb-8 md:mb-0 md:pr-8">
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <h3 className="text-xl font-bold mb-4 text-secondary-dark">サンリットウエスト鍼灸整骨院</h3>
-                <p className="mb-2"><strong>住所：</strong> 〒123-4567 東京都○○区○○町1-2-3</p>
-                <p className="mb-2"><strong>電話：</strong> 03-1234-5678</p>
-                <p className="mb-2"><strong>診療時間：</strong> 9:00〜20:00</p>
+                <p className="mb-2"><strong>住所：</strong> 神奈川県海老名市中野2-19-7 サンリットウエストH</p>
+                <p className="mb-2"><strong>電話：</strong> 046-204-7870</p>
+                <p className="mb-2"><strong>受付時間：</strong> 平日 10:00〜19:30 / 土曜 10:00〜17:00</p>
                 <p className="mb-2"><strong>定休日：</strong> 日曜・祝日</p>
-                <p className="mb-6"><strong>最寄駅：</strong> ○○線 ○○駅 徒歩5分</p>
                 <a 
-                  href="https://maps.app.goo.gl/mhwVjNXeNz8fENs68" 
+                  href="https://maps.app.goo.gl/s47VjwptrDob4APz8" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="bg-primary hover:bg-primary-dark text-white px-4 py-2 rounded-md transition-colors duration-300 font-medium inline-block"
@@ -283,13 +282,14 @@ const Home = () => {
             <div className="md:w-1/2">
               <div className="h-96 bg-gray-200 rounded-lg overflow-hidden">
                 <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3251.731343131381!2d139.375271!3d35.4119092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60185533352d2663%3A0x8aaf62a1b1e27869!2z44K144Oz44Oq44OD44OI44Km44Ko44K544OI6Y2854G45pW06aqo6Zmi!5e0!3m2!1sja!2sjp!4v1742230296054!5m2!1sja!2sjp" 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3251.73134423394!2d139.37269607533497!3d35.41190917267532!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60185533352d2663%3A0x8aaf62a1b1e27869!2z44K144Oz44Oq44OD44OI44Km44Ko44K544OI6Y2854G45pW06aqo6Zmi!5e0!3m2!1sja!2sjp!4v1746880794608!5m2!1sja!2sjp" 
                   width="100%" 
                   height="100%" 
                   style={{ border: 0 }} 
                   allowFullScreen={true} 
                   loading="lazy" 
                   referrerPolicy="no-referrer-when-downgrade"
+                  title="サンリットウエスト鍼灸整骨院 Google Map"
                 ></iframe>
               </div>
             </div>
