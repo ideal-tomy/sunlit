@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 const Contact = () => {
+  // 問い合わせフォームの状態管理
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -9,6 +10,12 @@ const Contact = () => {
     message: ''
   });
 
+  // AIチャットボット用の状態管理
+  const [chatInput, setChatInput] = useState('');
+  const [chatResponse, setChatResponse] = useState('');
+  const [isChatLoading, setIsChatLoading] = useState(false);
+
+  // フォーム入力変更ハンドラ
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -17,12 +24,11 @@ const Contact = () => {
     }));
   };
 
+  // フォーム送信ハンドラ
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // ここに実際のフォーム送信処理を実装
-    console.log('フォームデータ:', formData);
     alert('お問い合わせありがとうございます。内容を確認の上、折り返しご連絡いたします。');
-    // フォームをリセット
     setFormData({
       name: '',
       email: '',
@@ -30,6 +36,26 @@ const Contact = () => {
       subject: '',
       message: ''
     });
+  };
+
+  // AIチャットボット送信ハンドラ (Dify連携時に実装)
+  const handleChatSubmit = async () => {
+    if (!chatInput.trim()) return;
+    setIsChatLoading(true);
+    setChatResponse(''); // 前回の回答をクリア
+
+    // Dify連携処理をここに記述 (これはダミーの遅延とレスポンスです)
+    try {
+      // 例: await callDifyApi(chatInput);
+      await new Promise(resolve => setTimeout(resolve, 1500)); // ダミーのAPI呼び出し遅延
+      const dummyResponse = `「${chatInput}」というご質問ですね。\n\nこちらがダミーの回答です。実際のDify連携時には、ここがAIからの適切な回答に置き換わります。`;
+      setChatResponse(dummyResponse);
+    } catch (error) {
+      console.error('AIチャットボットエラー:', error);
+      setChatResponse('申し訳ありません、エラーが発生しました。もう一度お試しください。');
+    } finally {
+      setIsChatLoading(false);
+    }
   };
 
   return (
@@ -45,19 +71,114 @@ const Contact = () => {
       <div className="py-20 px-4">
         <div className="container mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-secondary-dark">お問い合わせ</h2>
-          <div className="w-24 h-1 bg-primary mx-auto mb-12"></div>
+          <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
           
           <div className="max-w-4xl mx-auto">
+            <p className="text-lg text-center mb-8">
+              サンリットウエスト鍼灸整骨院へのお問い合わせは、下記の方法で受け付けております。<br />
+              まずはチャットボットやFAQでご確認いただくと、よりスムーズにご案内できます。
+            </p>
+            
+            {/* AIチャットボットセクション */}
             <div className="bg-white p-8 rounded-lg shadow-md mb-12">
-              <p className="text-lg text-center mb-8">
-                サンリットウエスト鍼灸整骨院へのお問い合わせは、以下のフォームまたはお電話にてお願いいたします。<br />
-                ご予約・ご質問など、お気軽にお問い合わせください。
+              <h3 className="text-2xl font-bold mb-6 text-center text-secondary-dark">AIチャットボットにご質問ください</h3>
+              <div className="mb-4">
+                <textarea 
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  rows={3}
+                  placeholder="例：予約は必要ですか？"
+                  value={chatInput}
+                  onChange={(e) => setChatInput(e.target.value)}
+                />
+              </div>
+              <div className="text-center mb-6">
+                <button 
+                  className="bg-primary hover:bg-primary-dark text-white font-medium py-2 px-6 rounded-md transition-colors duration-300 disabled:bg-gray-400"
+                  onClick={handleChatSubmit}
+                  disabled={isChatLoading || !chatInput.trim()}
+                >
+                  {isChatLoading ? '送信中...' : '質問する'}
+                </button>
+              </div>
+              {chatResponse && (
+                <div className="bg-accent bg-opacity-10 p-4 rounded-lg border-l-4 border-primary">
+                  <h4 className="font-bold text-secondary-dark mb-2">AIからの回答：</h4>
+                  <p className="text-gray-700 whitespace-pre-wrap">{chatResponse}</p>
+                </div>
+              )}
+            </div>
+            
+            {/* FAQセクション */}
+            <div className="bg-white p-8 rounded-lg shadow-md mb-12">
+              <h3 className="text-2xl font-bold mb-4 text-center text-secondary-dark">よくある質問</h3>
+              <p className="text-left mb-6">
+                よくいただく質問と回答をまとめました。
+                ご不明点の解決にお役立てください。
+              </p>
+              
+              {/* アコーディオンFAQ - 以下はサンプルです */}
+              <div className="space-y-4">
+                {/* FAQ項目1 */}
+                <details className="bg-gray-50 py-4 rounded-lg cursor-pointer">
+                  <summary className="font-medium text-secondary-dark text-lg">初めての来院の流れを教えてください</summary>
+                  <div className="mt-4 pl-4 text-gray-700">
+                    <p>初めてのご来院は以下の流れです。</p>
+                    <ol className="list-decimal pl-5 mt-2 space-y-1">
+                      <li>お電話またはウェブサイトからご予約ください</li>
+                      <li>来院日に受付で問診票に必要事項をご記入ください</li>
+                      <li>現在のお怪我や既往歴をお伝えください</li>
+                      <li>診察・検査を行います</li>
+                      <li>医師から診断結果と治療方針の説明を受けます</li>
+                      <li>治療を行います</li>
+                    </ol>
+                  </div>
+                </details>
+                
+                {/* FAQ項目2 */}
+                <details className="bg-gray-50 py-4 rounded-lg cursor-pointer">
+                  <summary className="font-medium text-secondary-dark text-lg">保険は使えますか？</summary>
+                  <div className="mt-4 pl-4 text-gray-700">
+                    <p>はい、当院では健康保険を使用した治療も行っております。交通事故や労災の場合は各種保険が適用されることがあります。詳しくは受付にてお尋ねください。</p>
+                  </div>
+                </details>
+                
+                {/* FAQ項目3 */}
+                <details className="bg-gray-50 py-4 rounded-lg cursor-pointer">
+                  <summary className="font-medium text-secondary-dark text-lg">予約は必要ですか？</summary>
+                  <div className="mt-4 pl-4 text-gray-700">
+                    <p>予約の上ご来院いただくとお待ち時間が少なくて済みますが、飛び込みでのご来院も可能です。ただし、混雑状況によってはお待ちいただく場合がありますので、可能な限り事前のご予約をお勧めしております。</p>
+                  </div>
+                </details>
+                
+                {/* FAQ項目4 */}
+                <details className="bg-gray-50 py-4 rounded-lg cursor-pointer">
+                  <summary className="font-medium text-secondary-dark text-lg">金額は事前にわかりますか？</summary>
+                  <div className="mt-4 pl-4 text-gray-700">
+                    <p>保険診療の場合は保険診療の自己負担分、自由診療の場合は施術内容によって料金が異なります。診察後にご提案する治療方針と合わせて、ご来院時に詳しくご説明いたします。</p>
+                  </div>
+                </details>
+                
+                {/* FAQ項目5 */}
+                <details className="bg-gray-50 py-4 rounded-lg cursor-pointer">
+                  <summary className="font-medium text-secondary-dark text-lg">駅からのアクセス方法を教えてください</summary>
+                  <div className="mt-4 pl-4 text-gray-700">
+                    <p>最寄駅からのアクセス方法については、当院までの約のルートについてお電話でお尋ねいただくか、Googleマップで「サンリットウエスト鍼灸整骨院」と検索いただくと詳しいルートが表示されます。</p>
+                  </div>
+                </details>
+              </div>
+            </div>
+            
+            {/* 問い合わせフォームセクション */}
+            <div className="bg-white p-8 rounded-lg shadow-md mb-12">
+              <h3 className="text-2xl font-bold mb-4 text-center text-secondary-dark">お問い合わせフォーム</h3>
+              <p className="text-center mb-8">
+                上記で解決しないご質問やご予約などは、以下のフォームまたはお電話にてお問い合わせください。
               </p>
               
               <div className="mb-8 text-center">
                 <h3 className="text-xl font-bold mb-2 text-secondary-dark">お電話でのお問い合わせ</h3>
-                <p className="text-2xl font-bold text-primary">03-1234-5678</p>
-                <p className="text-gray-600">受付時間: 平日 9:00〜20:00 / 土日祝 9:00〜18:00</p>
+                <p className="text-2xl font-bold text-primary">046-204-7870</p>
+                <p className="text-gray-600">受付時間: 平日 10:00〜19:30 / 土曜 10:00〜17:00（日曜・祝日定休）</p>
               </div>
               
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -161,31 +282,29 @@ const Contact = () => {
                 <div>
                   <p className="mb-4">
                     <strong>住所：</strong><br />
-                    〒123-4567<br />
-                    東京都新宿区西新宿1-2-3<br />
-                    サンリットビル2F
+                    神奈川県海老名市中野2-19-7<br />
+                    サンリットウエストH
                   </p>
                   <p className="mb-4">
-                    <strong>最寄り駅：</strong><br />
-                    JR新宿駅 西口から徒歩5分<br />
-                    都営大江戸線 新宿西口駅から徒歩3分
+                    <strong>電話番号：</strong><br />
+                    046-204-7870
                   </p>
                   <p>
-                    <strong>診療時間：</strong><br />
-                    平日：9:00〜20:00<br />
-                    土日祝：9:00〜18:00<br />
-                    <span className="text-gray-600">※ 水曜定休</span>
+                    <strong>受付時間：</strong><br />
+                    平日：10:00〜19:30<br />
+                    土曜日：10:00〜17:00<br />
+                    <span className="text-gray-600">※ 定休日：日曜・祝日</span>
                   </p>
                 </div>
                 <div className="h-64 md:h-auto">
                   <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.828030689816!2d139.6986551!3d35.6938398!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188cd4b71a37a1%3A0xf2495d5e9e74ab96!2z5paw5a6_6aeF!5e0!3m2!1sja!2sjp!4v1637134756951!5m2!1sja!2sjp" 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3251.73134423394!2d139.37269607533497!3d35.41190917267532!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60185533352d2663%3A0x8aaf62a1b1e27869!2z44K144Oz44Oq44OD44OI44Km44Ko44K544OI6Y2854G45pW06aqo6Zmi!5e0!3m2!1sja!2sjp!4v1746880794608!5m2!1sja!2sjp" 
                     width="100%" 
                     height="100%" 
                     style={{ border: 0, borderRadius: '0.375rem' }} 
                     allowFullScreen={true} 
                     loading="lazy"
-                    title="Google Map"
+                    title="サンリットウエスト鍼灸整骨院 Google Map"
                   ></iframe>
                 </div>
               </div>

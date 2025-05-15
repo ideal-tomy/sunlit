@@ -13,7 +13,7 @@ const Navbar = () => {
     { name: '自由診療', path: '/private-treatment' },
     { name: '保険診療', path: '/insurance' },
     { name: 'スタッフ紹介', path: '/staff' },
-    { name: 'ブログ', path: '/blog' },
+    { name: 'インスタグラム', path: '/instagram' },
     { name: 'お問い合わせ', path: '/contact' },
   ];
 
