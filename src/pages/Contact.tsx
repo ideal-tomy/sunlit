@@ -161,28 +161,49 @@ const Contact = () => {
             </p>
             
             {/* AIチャットボットセクション */}
-            <div className="bg-white p-8 rounded-lg shadow-md mb-12">
-              <h3 className="text-2xl font-bold mb-6 text-center text-secondary-dark">AIチャットボットにご質問ください</h3>
-              <div className="mb-4">
-                <textarea 
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                  rows={3}
-                  placeholder="例：予約は必要ですか？"
-                  value={chatInput}
-                  onChange={(e) => setChatInput(e.target.value)}
-                />
+            <div id="ai-chat-section-wrapper" className="bg-white p-8 rounded-lg shadow-md mb-12">
+              <div className="custom-question-area-container mb-6">
+                {/* 左カラム：画像 */}
+                <div className="custom-image-column">
+                  <img
+                    src="/images/botimage.png"
+                    alt="院長イラスト"
+                    className="rounded-lg object-contain"
+                    style={{
+                      maxWidth: '100%',
+                      maxHeight: '220px', // 適宜調整
+                      width: 'auto',
+                      height: 'auto',
+                    }}
+                  />
+                </div>
+                {/* 右カラム：タイトル・入力・ボタン */}
+                <div className="custom-form-column">
+                  <h3 className="text-2xl font-bold mb-4 text-center sm:text-left text-secondary-dark">AIチャットボットにご質問ください</h3>
+                  <div className="mb-4">
+                    <textarea 
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                      rows={3}
+                      placeholder="例：予約は必要ですか？"
+                      value={chatInput}
+                      onChange={(e) => setChatInput(e.target.value)}
+                    />
+                  </div>
+                  <div className="text-center sm:text-left">
+                    <button 
+                      className="bg-primary hover:bg-primary-dark text-white font-medium py-2 px-6 rounded-md transition-colors duration-300 disabled:bg-gray-400"
+                      onClick={handleChatSubmit}
+                      disabled={isChatLoading || !chatInput.trim()}
+                    >
+                      {isChatLoading ? '送信中...' : '質問する'}
+                    </button>
+                  </div>
+                </div>
               </div>
-              <div className="text-center mb-6">
-                <button 
-                  className="bg-primary hover:bg-primary-dark text-white font-medium py-2 px-6 rounded-md transition-colors duration-300 disabled:bg-gray-400"
-                  onClick={handleChatSubmit}
-                  disabled={isChatLoading || !chatInput.trim()}
-                >
-                  {isChatLoading ? '送信中...' : '質問する'}
-                </button>
-              </div>
+
+              {/* 回答エリア（画像なし） - 質問エリアの下に配置 */}
               {chatResponse && (
-                <div className="bg-accent bg-opacity-10 p-4 rounded-lg border-l-4 border-primary">
+                <div id="custom-response-area" className="mt-8 bg-accent bg-opacity-10 p-4 rounded-lg border-l-4 border-primary">
                   <h4 className="font-bold text-secondary-dark mb-2">AIからの回答：</h4>
                   <p className="text-gray-700 whitespace-pre-wrap">{chatResponse}</p>
                 </div>

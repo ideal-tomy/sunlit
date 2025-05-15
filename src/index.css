@@ -542,3 +542,47 @@ button:focus-visible {
 .pt-8 {
   padding-top: 2rem;
 }
+
+/* AIチャットボットセクションのカスタムスタイル */
+#ai-chat-section-wrapper .custom-question-area-container {
+  display: flex;
+  flex-direction: column; /* スマホでは縦積み */
+  align-items: flex-start; /* スマホでのアイテム配置 */
+}
+
+#ai-chat-section-wrapper .custom-image-column {
+  width: 100%; /* スマホでは全幅 */
+  display: flex;
+  justify-content: center; /* スマホでは画像を中央に */
+  margin-bottom: 1rem; /* スマホ時の画像とフォームの間のマージン */
+}
+
+#ai-chat-section-wrapper .custom-form-column {
+  width: 100%; /* スマホでは全幅 */
+  display: flex;
+  flex-direction: column;
+}
+
+/* PC表示 (sm以上) のスタイル */
+@media (min-width: 640px) { /* Tailwindのsmブレークポイント */
+  #ai-chat-section-wrapper .custom-question-area-container {
+    flex-direction: row; /* PCでは横並び */
+    align-items: center; /* PCでは画像とフォームを垂直中央揃え */
+  }
+
+  #ai-chat-section-wrapper .custom-image-column {
+    width: 20%; 
+    justify-content: flex-start; /* PCでは画像を左寄せ */
+    margin-bottom: 0;
+    padding-right: 1rem; /* 画像右側の余白 */
+  }
+
+  #ai-chat-section-wrapper .custom-form-column {
+    width: 80%;
+    /* padding-left: 1rem; /* 必要に応じてテキスト左側の余白 */
+  }
+}
+
+#custom-response-area {
+  /* 必要であればスタイルを追加 */
+}
