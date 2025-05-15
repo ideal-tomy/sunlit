@@ -10,6 +10,11 @@ const Contact = () => {
     message: ''
   });
 
+  // AIチャットボット用の状態管理
+  const [chatInput, setChatInput] = useState('');
+  const [chatResponse, setChatResponse] = useState('');
+  const [isChatLoading, setIsChatLoading] = useState(false);
+
   // フォーム入力変更ハンドラ
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -33,6 +38,26 @@ const Contact = () => {
     });
   };
 
+  // AIチャットボット送信ハンドラ (Dify連携時に実装)
+  const handleChatSubmit = async () => {
+    if (!chatInput.trim()) return;
+    setIsChatLoading(true);
+    setChatResponse(''); // 前回の回答をクリア
+
+    // Dify連携処理をここに記述 (これはダミーの遅延とレスポンスです)
+    try {
+      // 例: await callDifyApi(chatInput);
+      await new Promise(resolve => setTimeout(resolve, 1500)); // ダミーのAPI呼び出し遅延
+      const dummyResponse = `「${chatInput}」というご質問ですね。\n\nこちらがダミーの回答です。実際のDify連携時には、ここがAIからの適切な回答に置き換わります。`;
+      setChatResponse(dummyResponse);
+    } catch (error) {
+      console.error('AIチャットボットエラー:', error);
+      setChatResponse('申し訳ありません、エラーが発生しました。もう一度お試しください。');
+    } finally {
+      setIsChatLoading(false);
+    }
+  };
+
   return (
     <div className="page-container">
       {/* ヒーローセクション - インラインスタイル実装 */}
@@ -54,10 +79,39 @@ const Contact = () => {
               まずはチャットボットやFAQでご確認いただくと、よりスムーズにご案内できます。
             </p>
             
+            {/* AIチャットボットセクション */}
+            <div className="bg-white p-8 rounded-lg shadow-md mb-12">
+              <h3 className="text-2xl font-bold mb-6 text-center text-secondary-dark">AIチャットボットにご質問ください</h3>
+              <div className="mb-4">
+                <textarea 
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  rows={3}
+                  placeholder="例：予約は必要ですか？"
+                  value={chatInput}
+                  onChange={(e) => setChatInput(e.target.value)}
+                />
+              </div>
+              <div className="text-center mb-6">
+                <button 
+                  className="bg-primary hover:bg-primary-dark text-white font-medium py-2 px-6 rounded-md transition-colors duration-300 disabled:bg-gray-400"
+                  onClick={handleChatSubmit}
+                  disabled={isChatLoading || !chatInput.trim()}
+                >
+                  {isChatLoading ? '送信中...' : '質問する'}
+                </button>
+              </div>
+              {chatResponse && (
+                <div className="bg-accent bg-opacity-10 p-4 rounded-lg border-l-4 border-primary">
+                  <h4 className="font-bold text-secondary-dark mb-2">AIからの回答：</h4>
+                  <p className="text-gray-700 whitespace-pre-wrap">{chatResponse}</p>
+                </div>
+              )}
+            </div>
+            
             {/* FAQセクション */}
             <div className="bg-white p-8 rounded-lg shadow-md mb-12">
               <h3 className="text-2xl font-bold mb-4 text-center text-secondary-dark">よくある質問</h3>
-              <p className="text-center mb-6">
+              <p className="text-left mb-6">
                 よくいただく質問と回答をまとめました。
                 ご不明点の解決にお役立てください。
               </p>
@@ -65,8 +119,8 @@ const Contact = () => {
               {/* アコーディオンFAQ - 以下はサンプルです */}
               <div className="space-y-4">
                 {/* FAQ項目1 */}
-                <details className="bg-gray-50 p-4 rounded-lg cursor-pointer">
-                  <summary className="font-medium text-secondary-dark">初めての来院の流れを教えてください</summary>
+                <details className="bg-gray-50 py-4 rounded-lg cursor-pointer">
+                  <summary className="font-medium text-secondary-dark text-lg">初めての来院の流れを教えてください</summary>
                   <div className="mt-4 pl-4 text-gray-700">
                     <p>初めてのご来院は以下の流れです。</p>
                     <ol className="list-decimal pl-5 mt-2 space-y-1">
@@ -81,32 +135,32 @@ const Contact = () => {
                 </details>
                 
                 {/* FAQ項目2 */}
-                <details className="bg-gray-50 p-4 rounded-lg cursor-pointer">
-                  <summary className="font-medium text-secondary-dark">保険は使えますか？</summary>
+                <details className="bg-gray-50 py-4 rounded-lg cursor-pointer">
+                  <summary className="font-medium text-secondary-dark text-lg">保険は使えますか？</summary>
                   <div className="mt-4 pl-4 text-gray-700">
                     <p>はい、当院では健康保険を使用した治療も行っております。交通事故や労災の場合は各種保険が適用されることがあります。詳しくは受付にてお尋ねください。</p>
                   </div>
                 </details>
                 
                 {/* FAQ項目3 */}
-                <details className="bg-gray-50 p-4 rounded-lg cursor-pointer">
-                  <summary className="font-medium text-secondary-dark">予約は必要ですか？</summary>
+                <details className="bg-gray-50 py-4 rounded-lg cursor-pointer">
+                  <summary className="font-medium text-secondary-dark text-lg">予約は必要ですか？</summary>
                   <div className="mt-4 pl-4 text-gray-700">
                     <p>予約の上ご来院いただくとお待ち時間が少なくて済みますが、飛び込みでのご来院も可能です。ただし、混雑状況によってはお待ちいただく場合がありますので、可能な限り事前のご予約をお勧めしております。</p>
                   </div>
                 </details>
                 
                 {/* FAQ項目4 */}
-                <details className="bg-gray-50 p-4 rounded-lg cursor-pointer">
-                  <summary className="font-medium text-secondary-dark">金額は事前にわかりますか？</summary>
+                <details className="bg-gray-50 py-4 rounded-lg cursor-pointer">
+                  <summary className="font-medium text-secondary-dark text-lg">金額は事前にわかりますか？</summary>
                   <div className="mt-4 pl-4 text-gray-700">
                     <p>保険診療の場合は保険診療の自己負担分、自由診療の場合は施術内容によって料金が異なります。診察後にご提案する治療方針と合わせて、ご来院時に詳しくご説明いたします。</p>
                   </div>
                 </details>
                 
                 {/* FAQ項目5 */}
-                <details className="bg-gray-50 p-4 rounded-lg cursor-pointer">
-                  <summary className="font-medium text-secondary-dark">駅からのアクセス方法を教えてください</summary>
+                <details className="bg-gray-50 py-4 rounded-lg cursor-pointer">
+                  <summary className="font-medium text-secondary-dark text-lg">駅からのアクセス方法を教えてください</summary>
                   <div className="mt-4 pl-4 text-gray-700">
                     <p>最寄駅からのアクセス方法については、当院までの約のルートについてお電話でお尋ねいただくか、Googleマップで「サンリットウエスト鍼灸整骨院」と検索いただくと詳しいルートが表示されます。</p>
                   </div>
