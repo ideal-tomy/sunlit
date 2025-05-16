@@ -1,7 +1,7 @@
 {
   "framework": null,
   "functions": {
-    "api/**/*.js": {
+    "api/**/*.ts": {
       "memory": 128,
       "maxDuration": 10,
       "includeFiles": "node_modules/**"
