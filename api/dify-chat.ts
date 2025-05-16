@@ -1,14 +1,6 @@
-// api/dify-chat.ts (シンプルなテスト用コード)
+// api/dify-chat.ts (ESMテストコード)
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
-export default function handler(
-  req: VercelRequest,
-  res: VercelResponse,
-) {
-  if (req.method === 'POST') {
-    res.status(200).json({ message: 'Hello from Dify Chat API (simple)' });
-  } else {
-    // GETや他のメソッドの場合
-    res.status(405).json({ error: 'Method Not Allowed' });
-  }
+export default async function handler(req: VercelRequest, res: VercelResponse) {
+  return res.status(200).json({ ok: true, method: req.method });
 } 
