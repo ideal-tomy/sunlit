@@ -1,0 +1,18 @@
+{
+  "framework": null,
+  "functions": {
+    "api/**/*.ts": {
+      "runtime": "nodejs20.x",
+      "memory": 128,
+      "maxDuration": 10,
+      "includeFiles": ["../../node_modules/.pnpm/**", "../../node_modules/**"]
+    }
+  },
+  "build": {
+    "env": {
+      "NODE_VERSION": "20"
+    }
+  },
+  "outputDirectory": "dist",
+  "buildCommand": "npm run build"
+}
