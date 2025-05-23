@@ -34,27 +34,7 @@ const Insurance = () => {
               経験豊富な施術者が怪我・痛みに対し的確なアプローチで出来るだけ早く現場復帰が出来るよう心がけておりますので安心してご相談下さい
             </p>
             
-            <div className="mb-6">
-              <div className="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:shadow-xl hover:-translate-y-1">
-                <div className="bg-primary bg-opacity-10 p-3 flex items-center">
-                  <span className="material-icons text-2xl text-primary mr-2">local_hospital</span>
-                  <h3 className="text-xl font-bold text-secondary-dark">自賠責治療</h3>
-                </div>
-                <div className="p-5">
-                  <p className="text-lg mb-4 text-gray-700">
-                    突然の交通事故でお悩みの方は当院まで一報ご相談ください。
-                    交通事故は日常生活受ける衝撃の数倍のエネルギーの衝撃が身体に与えられます。
-                  </p>
-                  <p className="text-lg mb-4 text-gray-700">
-                    その大きな衝撃により<span className="font-bold text-primary">後遺症を残してしまう方々が多く</span>いらっしゃいます。
-                    交通事故治療は限られた治療期間でいかに回数をこなすかが大事になります。
-                  </p>
-                  <p className="text-lg text-gray-700">
-                    当院の施術者は交通事故治療も対応しておりますので、事故に遭われてしまった際にはご相談だけでも大丈夫ですので一度お電話ください。
-                  </p>
-                </div>
-              </div>
-            </div>
+            
           </div>
           
           <h1 className="text-3xl md:text-4xl font-bold mb-8 text-center text-secondary-dark">保険診療</h1>
@@ -285,6 +265,28 @@ const Insurance = () => {
                   </div>
                 </div>
               </div>
+
+              <div className="mb-6">
+              <div className="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:shadow-xl hover:-translate-y-1">
+                <div className="bg-primary bg-opacity-10 p-3 flex items-center">
+                  <span className="material-icons text-2xl text-primary mr-2">local_hospital</span>
+                  <h3 className="text-xl font-bold text-secondary-dark">自賠責治療</h3>
+                </div>
+                <div className="p-5">
+                  <p className="text-lg mb-4 text-gray-700">
+                    突然の交通事故でお悩みの方は当院まで一報ご相談ください。
+                    交通事故は日常生活受ける衝撃の数倍のエネルギーの衝撃が身体に与えられます。
+                  </p>
+                  <p className="text-lg mb-4 text-gray-700">
+                    その大きな衝撃により<span className="font-bold text-primary">後遺症を残してしまう方々が多く</span>いらっしゃいます。
+                    交通事故治療は限られた治療期間でいかに回数をこなすかが大事になります。
+                  </p>
+                  <p className="text-lg text-gray-700">
+                    当院の施術者は交通事故治療も対応しておりますので、事故に遭われてしまった際にはご相談だけでも大丈夫ですので一度お電話ください。
+                  </p>
+                </div>
+              </div>
+            </div>
               
               <div className="bg-accent bg-opacity-10 p-6 rounded-lg mt-8 mb-12">
                 <h3 className="text-xl font-bold mb-4 text-secondary-dark flex items-center">
