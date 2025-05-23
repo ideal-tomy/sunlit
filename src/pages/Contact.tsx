@@ -10,11 +10,10 @@ const Contact = () => {
     message: ''
   });
 
-  // AIチャットボット用の状態管理
+  // OpenAIチャットボット用の状態管理
   const [chatInput, setChatInput] = useState('');
   const [chatResponse, setChatResponse] = useState('');
   const [isChatLoading, setIsChatLoading] = useState(false);
-  const [conversationId, setConversationId] = useState<string | null>(null); // Dify用 conversation_id
 
   // フォーム入力変更ハンドラ
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -28,7 +27,6 @@ const Contact = () => {
   // フォーム送信ハンドラ
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // ここに実際のフォーム送信処理を実装
     alert('お問い合わせありがとうございます。内容を確認の上、折り返しご連絡いたします。');
     setFormData({
       name: '',
@@ -39,103 +37,27 @@ const Contact = () => {
     });
   };
 
-  // AIチャットボット送信ハンドラ
+  // OpenAIチャットボット送信ハンドラ
   const handleChatSubmit = async () => {
     if (!chatInput.trim()) return;
     setIsChatLoading(true);
-    // ストリーミング中は前回のレスポンスを保持しつつ追記するため、ここではクリアしない
-    // setChatResponse(''); 
-
-    let currentDisplayedResponse = chatResponse; // 既存のレスポンスに追記する場合
-    if (!conversationId || chatResponse === '') { // 新規会話、またはエラー後の再送信
-        currentDisplayedResponse = '';
-        setChatResponse('');
-    }
-
     try {
-      const response = await fetch('/api/dify-chat', { // APIルートのパス
+      const response = await fetch('/api/openai-chat', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          query: chatInput,
-          // inputs: {}, // Dify側で設定した入力変数に応じて渡す
-          conversation_id: conversationId, 
-        }),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query: chatInput })
       });
-
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({ message: response.statusText }));
-        console.error('API Error:', errorData);
-        setChatResponse(prev => prev + `\nエラーが発生しました: ${errorData.details?.message || errorData.message || response.statusText}`);
-        setIsChatLoading(false);
-        return;
+      const data = await response.json();
+      if (response.ok) {
+        setChatResponse(data.choices?.[0]?.message?.content || '回答が取得できませんでした');
+      } else {
+        setChatResponse('エラーが発生しました: ' + (data.error?.message || '不明なエラー'));
       }
-
-      if (!response.body) {
-        setChatResponse(prev => prev + '\nエラー: レスポンスボディがありません。');
-        setIsChatLoading(false);
-        return;
-      }
-
-      const reader = response.body.getReader();
-      const decoder = new TextDecoder('utf-8');
-      let done = false;
-      let accumulatedData = '';
-
-      // 新しい質問に対する回答なので、表示されているレスポンスをリセット
-      // （会話が継続している場合は、UI上どう見せるかによるが、一旦クリアする）
-      // ただし、ユーザーが追加入力した場合は、前の回答は残したいかもしれない。
-      // ここでは、毎回新しい回答として表示を更新する。
-      if (currentDisplayedResponse === '') setChatResponse(''); 
-      else setChatResponse(currentDisplayedResponse + '\n\n...'); // 継続を示す区切り
-      
-      let currentStreamingAnswer = '';
-
-      while (!done) {
-        const { value, done: readerDone } = await reader.read();
-        done = readerDone;
-        const chunk = decoder.decode(value, { stream: !done });
-        accumulatedData += chunk;
-
-        let boundary;
-        while ((boundary = accumulatedData.indexOf('\n\n')) >= 0) {
-          const singleEvent = accumulatedData.substring(0, boundary);
-          accumulatedData = accumulatedData.substring(boundary + 2);
-
-          if (singleEvent.startsWith('data: ')) {
-            const jsonDataString = singleEvent.substring(6);
-            try {
-              const parsedData = JSON.parse(jsonDataString);
-              if (parsedData.event === 'agent_message' || parsedData.event === 'message') {
-                currentStreamingAnswer += parsedData.answer;
-                // 既存のレスポンス + 今回のストリーミング中の回答
-                setChatResponse(currentDisplayedResponse + (currentDisplayedResponse ? '\n\n' : '') + currentStreamingAnswer);
-              } else if (parsedData.event === 'message_end') {
-                if (parsedData.conversation_id) {
-                  setConversationId(parsedData.conversation_id);
-                }
-              }
-            } catch (e) {
-              console.warn('Error parsing Dify SSE data chunk (event):', e, jsonDataString);
-            }
-          }
-        }
-      }
-      // ループ終了後に残ったデータを最終処理 (主にJSONではないプレーンテキストの断片など)
-      if (accumulatedData.trim()) {
-          // ストリーミングの最後が不完全なJSONだった場合などのエラー処理
-          // Difyの仕様では通常 event:done や message_end で終わるため、ここに来ることは少ない想定
-          console.log("Remaining data after stream:", accumulatedData);
-      }
-
     } catch (error) {
-      console.error('AIチャットボット接続エラー:', error);
-      setChatResponse(prev => prev + '\n申し訳ありません、接続エラーが発生しました。もう一度お試しください。');
+      setChatResponse('ネットワークエラーが発生しました');
     } finally {
       setIsChatLoading(false);
-      setChatInput(''); 
+      setChatInput('');
     }
   };
 

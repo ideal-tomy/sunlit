@@ -7,7 +7,10 @@ export default defineConfig({
   base: '/', // GitHub Pagesのリポジトリ名に合わせる
   server: {
     host: '0.0.0.0',  // すべてのネットワークインターフェースでリッスン
-    port: 5180,       // ポートを固定
+    port: 5181,       // ポートを固定
+    proxy: {
+      '/api': 'http://localhost:5180'
+    },
     hmr: {
       overlay: false
     }
